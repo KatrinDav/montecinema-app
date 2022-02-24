@@ -1,0 +1,177 @@
+<template>
+  <section class="main_intro">
+    <div class="wrapper">
+      <div class="title">
+        <h1>Welcome to the best cinema in Monterail</h1>
+        <p>
+          Best movies, best experiences, best people. And all that doesn’t
+          exist. Yikes.
+        </p>
+      </div>
+
+      <button class="btn_large">Book a ticket</button>
+    </div>
+
+    <div class="main_image"></div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: "WelcomePage",
+};
+</script>
+
+<style>
+@media (min-width: 0px) {
+  .main_intro {
+    background-color: var(--cl-pink);
+    color: var(--cl-dark);
+    text-align: center;
+    padding-bottom: 40px;
+    width: 100%;
+  }
+
+  .main_intro .title {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .main_intro .title h1 {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-large_alt);
+    line-height: 49px;
+    padding: 35px 0;
+  }
+
+  .main_intro .title p {
+    font-family: var(--ff-primary_alt);
+    font-size: var(--fs-medium);
+    line-height: 37.4px;
+    letter-spacing: 1.5;
+    padding-bottom: 35px;
+  }
+
+  .btn_large {
+    display: block;
+    width: 310px;
+    height: 64px;
+    border-radius: 30px;
+    padding: 20px, 40px, 20px, 40px;
+    margin: 0 auto;
+    background-color: var(--cl-cherry-red);
+    color: var(--cl-white);
+    font-family: var(--ff-primary_alt);
+    font-weight: 500;
+    font-size: var(--fs-medium_alt);
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+  }
+
+  .btn_large:hover {
+    background-color: var(--cl-red);
+  }
+
+  .btn_large:active {
+    background-color: var(--cl-red);
+    border: 5px solid var(--cl-light-red);
+    outline: 5px solid var(--cl-light-red);
+    outline-offset: -5px;
+  }
+
+  .more_info {
+    width: 92%;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .more_info p {
+    font-family: var(--ff-primary_alt);
+    font-size: var(--fs-medium);
+    font-weight: 700;
+    color: var(--cl-dark);
+    text-transform: uppercase;
+  }
+
+  .more_info p:nth-child(2) {
+    color: var(--cl-cherry-red);
+  }
+
+  .more_info p span {
+    display: none;
+  }
+}
+
+@media (min-width: 932px) {
+  .main_intro {
+    padding-bottom: 65px;
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  .main_intro .title {
+    width: 70%;
+    padding-top: 50px;
+    padding-bottom: 45px;
+  }
+
+  .main_intro .title h1 {
+    font-size: var(--fs-super-large);
+    line-height: 102%;
+    letter-spacing: -0.01em;
+    padding: 40px 0;
+  }
+
+  .main_intro .title p {
+    padding-bottom: 10px;
+  }
+
+  .more_info p span {
+    display: inline;
+  }
+
+  .btn_large {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main_intro {
+    height: 95vh;
+    max-height: 678px;
+    max-width: 1344px;
+    padding-bottom: 0;
+    margin: 0 auto;
+  }
+
+  .main_intro .wrapper {
+    width: 55%;
+    text-align: left;
+    padding-left: 80px;
+  }
+
+  .main_intro .title {
+    width: 100%;
+    padding-top: 50px;
+  }
+
+  .main_intro .title p {
+    padding-right: 65px;
+  }
+
+  .main_intro .main_image {
+    width: 45%;
+    background-image: url("../assets/unsplash-AtPWnYNDJnM.jpg");
+    background-position: center;
+    background-size: cover;
+    background-origin: content-box;
+  }
+
+  .btn_large {
+    margin-left: 0;
+  }
+}
+</style>
