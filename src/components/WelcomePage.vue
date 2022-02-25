@@ -22,11 +22,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @media (min-width: 0px) {
   .main_intro {
-    background-color: var(--cl-pink);
-    color: var(--cl-dark);
+    background-color: $cl-pink;
+    color: $cl-dark;
     text-align: center;
     padding-bottom: 40px;
     width: 100%;
@@ -38,15 +38,15 @@ export default {
   }
 
   .main_intro .title h1 {
-    font-family: var(--ff-secondary);
-    font-size: var(--fs-large_alt);
+    font-family: $ff-secondary;
+    font-size: $fs-large-alt;
     line-height: 49px;
     padding: 35px 0;
   }
 
   .main_intro .title p {
-    font-family: var(--ff-primary_alt);
-    font-size: var(--fs-medium);
+    font-family: $ff-primary-alt;
+    font-size: $fs-medium;
     line-height: 37.4px;
     letter-spacing: 1.5;
     padding-bottom: 35px;
@@ -59,24 +59,24 @@ export default {
     border-radius: 30px;
     padding: 20px, 40px, 20px, 40px;
     margin: 0 auto;
-    background-color: var(--cl-cherry-red);
-    color: var(--cl-white);
-    font-family: var(--ff-primary_alt);
+    background-color: $cl-cherry-red;
+    color: $cl-white;
+    font-family: $ff-primary-alt;
     font-weight: 500;
-    font-size: var(--fs-medium_alt);
+    font-size: $fs-medium-alt;
     cursor: pointer;
     border: none;
     transition: 0.3s;
   }
 
   .btn_large:hover {
-    background-color: var(--cl-red);
+    background-color: $cl-red;
   }
 
   .btn_large:active {
-    background-color: var(--cl-red);
-    border: 5px solid var(--cl-light-red);
-    outline: 5px solid var(--cl-light-red);
+    background-color: $cl-red;
+    border: 5px solid $cl-light-red;
+    outline: 5px solid $cl-light-red;
     outline-offset: -5px;
   }
 
@@ -89,15 +89,15 @@ export default {
   }
 
   .more_info p {
-    font-family: var(--ff-primary_alt);
-    font-size: var(--fs-medium);
+    font-family: $ff-primary-alt;
+    font-size: $fs-medium;
     font-weight: 700;
-    color: var(--cl-dark);
+    color: $cl-dark;
     text-transform: uppercase;
   }
 
   .more_info p:nth-child(2) {
-    color: var(--cl-cherry-red);
+    color: $cl-cherry-red;
   }
 
   .more_info p span {
@@ -119,7 +119,7 @@ export default {
   }
 
   .main_intro .title h1 {
-    font-size: var(--fs-super-large);
+    font-size: $fs-super-large;
     line-height: 102%;
     letter-spacing: -0.01em;
     padding: 40px 0;

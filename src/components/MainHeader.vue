@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss">
 @media (min-width: 0px) {
   .header {
     display: flex;
@@ -51,7 +51,7 @@ export default {
     left: 0;
     width: 100%;
     height: 1.5px;
-    background-color: var(--cl_mid_grey);
+    background-color: $cl-mid-grey;
   }
 
   .mobile-nav span:nth-child(1) {
@@ -90,9 +90,9 @@ export default {
     margin-right: 20px;
     padding: 16px 30px;
     text-decoration: none;
-    font-family: var(--ff-primary_alt);
+    font-family: $ff-primary-alt;
     font-weight: 500;
-    color: var(--cl-cherry-red);
+    color: $cl-cherry-red;
     letter-spacing: 0.015em;
   }
 
@@ -101,11 +101,11 @@ export default {
     height: 48px;
     padding: 16px 30px;
     border-radius: 24px;
-    background-color: var(--cl-cherry-red);
+    background-color: $cl-cherry-red;
     border: none;
-    color: var(--cl-white);
-    font-family: var(--ff-primary_alt);
-    font-size: var(--fs-small);
+    color: $cl-white;
+    font-family: $ff-primary-alt;
+    font-size: $fs-small;
     font-weight: 500;
     line-height: 100%;
     cursor: pointer;
@@ -113,7 +113,7 @@ export default {
   }
 
   .desktop-nav .btn_login:hover {
-    background-color: var(--cl-red);
+    background-color: $cl-red;
   }
 }
 </style>
