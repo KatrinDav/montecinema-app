@@ -47,7 +47,7 @@ export default {
   .main_intro .title p {
     font-family: $ff-primary-alt;
     font-size: $fs-medium;
-    line-height: 37.4px;
+    line-height: 37px;
     letter-spacing: 1.5;
     padding-bottom: 35px;
   }
