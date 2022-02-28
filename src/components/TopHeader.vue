@@ -6,13 +6,25 @@
       </router-link>
     </div>
     <nav class="nav-menu">
-      <router-link :to="{ name: 'Movies' }" class="nav-menu__item">
+      <router-link
+        :to="{ name: 'Movies' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
         Movies
       </router-link>
-      <router-link :to="{ name: 'Screening' }" class="nav-menu__item">
+      <router-link
+        :to="{ name: 'Screening' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
         Screenings
       </router-link>
-      <router-link :to="{ name: 'Contact' }" class="nav-menu__item">
+      <router-link
+        :to="{ name: 'Contact' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
         Contact us
       </router-link>
     </nav>
@@ -93,7 +105,6 @@ export default {
   }
 
   .nav-menu {
-    /* background-color: yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,6 +117,10 @@ export default {
     color: $cl-grey;
     margin-top: -20px;
     font-size: $fs-normal;
+
+    &--active {
+      font-weight: bold;
+    }
   }
 
   .desktop-nav {
