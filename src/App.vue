@@ -1,19 +1,17 @@
 <template>
   <div class="container">
-    <MainHeader />
-    <WelcomePage />
+    <TopHeader />
+    <router-view />
   </div>
 </template>
 
 <script>
-import MainHeader from "./components/MainHeader.vue";
-import WelcomePage from "./components/WelcomePage.vue";
+import TopHeader from "./components/TopHeader.vue";
 
 export default {
   name: "App",
   components: {
-    MainHeader,
-    WelcomePage,
+    TopHeader,
   },
 };
 </script>
