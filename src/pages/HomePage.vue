@@ -16,17 +16,20 @@
       <div class="main_image"></div>
     </section>
     <MoviesList />
+    <FormLogin />
   </div>
 </template>
 
 <script>
 import MoviesList from "../components/MoviesList.vue";
 import MainTitle from "../components/MainTitle.vue";
+import FormLogin from "../components/FormLogin.vue";
 export default {
   name: "HomePage",
   components: {
     MoviesList,
     MainTitle,
+    FormLogin,
   },
 };
 </script>
