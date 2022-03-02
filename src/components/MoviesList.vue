@@ -17,6 +17,7 @@ import photo2 from "../assets/commando.png";
 import photo3 from "../assets/terminator.png";
 
 export default {
+  name: "MoviesList",
   components: { MovieCard },
   data() {
     return {
