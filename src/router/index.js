@@ -23,6 +23,11 @@ const routes = [
         component: () => import('@/pages/ContactPage.vue'),
     },
     {
+        path: '/login',
+        name: 'Login',
+        component: () => import('@/pages/LoginPage.vue'),
+    },
+    {
         path: '*',
         redirect: '/'
     },
