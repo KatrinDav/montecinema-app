@@ -36,27 +36,39 @@ export default {
 </script>
 
 <style lang="scss">
-.base-input__label {
-  display: block;
-  font-family: $ff-primary-alt;
-  font-size: $fs-xs;
-  color: $cl-light-red;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
+@media (min-width: 0px) {
+  .base-input__label {
+    display: block;
+    font-family: $ff-primary-alt;
+    font-size: $fs-xs;
+    color: $cl-light-red;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
 
-.base-input__input {
-  width: 472px;
-  height: 56px;
-  border-radius: 8px;
-  padding: 0px 24px;
-  justify-content: space-between;
-  outline: none;
-  border: none;
-  background-color: #f7f7f7;
-  font-size: $fs-normal;
-  font-family: $ff-primary;
-  line-height: 21px;
+  .base-input__input {
+    min-width: 331px;
+    height: 55px;
+    border-radius: 8px;
+    padding: 0px 24px;
+    outline: none;
+    border: none;
+    background-color: #f7f7f7;
+    font-size: $fs-normal;
+    font-family: $ff-primary;
+    line-height: 21px;
+
+    &:focus {
+      border: 1px solid $cl-light-blue;
+      background-color: $cl-blue;
+    }
+  }
+}
+@media (min-width: 582px) {
+  .base-input__input {
+    width: 472px;
+  }
 }
 </style>
