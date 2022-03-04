@@ -1,21 +1,44 @@
 <template>
   <header class="header">
     <div class="header_logo">
-      <img src="../assets/logo.svg" alt="logo" />
+      <router-link :to="{ name: 'Home' }">
+        <img src="../assets/logo.svg" alt="logo" />
+      </router-link>
     </div>
-    <nav>
-      <div class="mobile-nav"><span></span> <span></span> <span></span></div>
-      <div class="desktop-nav">
-        <a href="#" class="register">Register</a>
-        <button class="btn_login">Login</button>
-      </div>
+    <nav class="nav-menu">
+      <router-link
+        :to="{ name: 'Movies' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
+        Movies
+      </router-link>
+      <router-link
+        :to="{ name: 'Screening' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
+        Screenings
+      </router-link>
+      <router-link
+        :to="{ name: 'Contact' }"
+        class="nav-menu__item"
+        exact-active-class="nav-menu__item--active"
+      >
+        Contact us
+      </router-link>
     </nav>
+    <div class="mobile-nav"><span></span> <span></span> <span></span></div>
+    <div class="desktop-nav">
+      <a href="#" class="register">Register</a>
+      <button class="btn_login">Login</button>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: "MainHeader",
+  name: "TopHeader",
 };
 </script>
 
@@ -79,6 +102,25 @@ export default {
 
   .mobile-nav {
     display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-menu__item {
+    text-decoration: none;
+    margin: 0 35px;
+    font-family: $ff-primary;
+    color: $cl-grey;
+    margin-top: -20px;
+    font-size: $fs-normal;
+
+    &--active {
+      font-weight: bold;
+    }
   }
 
   .desktop-nav {
