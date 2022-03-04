@@ -31,7 +31,9 @@
     <div class="mobile-nav"><span></span> <span></span> <span></span></div>
     <div class="desktop-nav">
       <a href="#" class="register">Register</a>
-      <button class="btn_login">Login</button>
+      <router-link :to="{ name: 'Login' }">
+        <button class="btn_login">Login</button>
+      </router-link>
     </div>
   </header>
 </template>
