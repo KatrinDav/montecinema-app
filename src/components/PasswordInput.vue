@@ -8,6 +8,7 @@
         placeholder="Enter your password"
         :value="value"
         @input="$emit('input', $event.target.value)"
+        @blur="$emit('blur', $event.target.blur)"
       />
       <span class="input-wrapper__icon"> </span>
     </div>

@@ -5,14 +5,23 @@
       label="email"
       placeholder="Enter your email addres"
       v-model="email"
+      @blur="isEmailTouched = true"
     />
-
-    <PasswordInput label="password" v-model="password" />
-    <button type="submit" class="form-wrapper__button">Log in</button>
+    <div>{{ emailError }}</div>
+    <PasswordInput
+      label="password"
+      v-model="password"
+      @blur="isPasswordTouched = true"
+    />
+    <div>{{ passwordError }}</div>
+    <button type="submit" class="form-wrapper__button" :disabled="!isFormValid">
+      Log in
+    </button>
   </form>
 </template>
 
 <script>
+/* eslint-disable */
 import PasswordInput from "./PasswordInput.vue";
 import BaseInput from "./BaseInput.vue";
 export default {
@@ -25,13 +34,46 @@ export default {
     return {
       password: "",
       email: "",
+      isPasswordTouched: false,
+      isEmailTouched: false,
     };
+  },
+  computed: {
+    emailError() {
+      if (!this.isEmailTouched) {
+        return "";
+      }
+      if (!this.email) {
+        return "Email is required!";
+      }
+    },
+
+    passwordError() {
+      if (!this.isPasswordTouched) {
+        return "";
+      }
+      if (!this.password) {
+        return "Password is required!";
+      }
+    },
+
+    isFormValid() {
+      if (this.email && this.password) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   methods: {
     onSubmit() {
-      console.log(this.email, this.password);
-      this.password = "";
-      this.email = "";
+      if (this.isFormValid) {
+        console.log(this.email, this.password);
+        this.password = "";
+        this.email = "";
+        this.isPasswordTouched = false;
+        this.isEmailTouched = false;
+      }
     },
   },
 };
@@ -59,6 +101,11 @@ export default {
 
       &:hover {
         background-color: $cl-red;
+      }
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
       }
     }
   }
