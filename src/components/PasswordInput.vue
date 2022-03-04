@@ -32,12 +32,6 @@ export default {
       default: "password",
     },
   },
-
-  // methods: {
-  //   showPassword() {
-  //     this.$emit("show-password");
-  //   },
-  // },
 };
 </script>
 
