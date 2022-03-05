@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <h1 class="header-section">
-      {{ text }} <span>{{ subText }}</span>
-    </h1>
-  </div>
+  <h1 class="header-section">
+    {{ text }} <span>{{ subText }}</span>
+  </h1>
 </template>
 
 <script>
@@ -44,7 +42,7 @@ export default {
     line-height: 100%;
     letter-spacing: -0.01em;
     padding: 40px 0;
-    text-align: left;
+    /* text-align: left; */
   }
 }
 </style>

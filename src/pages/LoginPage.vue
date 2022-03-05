@@ -20,18 +20,22 @@ export default {
 
 <style lang="scss">
 @media (min-width: 0px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 60px;
+    overflow: hidden;
+  }
+  .login-container__title {
+    width: 600px;
+    text-align: center;
+  }
 }
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 60px;
-  overflow: hidden;
-}
-.login-container__title {
-  width: 600px;
-  text-align: left;
+@media (min-width: 932px) {
+  .login-container__title {
+    text-align: left;
+  }
 }
 </style>
