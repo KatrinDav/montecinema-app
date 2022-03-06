@@ -1,18 +1,25 @@
 <template>
 <section>
   <MainTitle text="All the Movies" />
-  
+  <div class="searchBar">
+    <BaseInput  
+      type="text"
+      label="search"
+      placeholder="Search for..."
+      v-model="query"/>
+  </div>
   <div class="movies-container">
+     
      <MovieCard
       v-for="movie in movies"
       :key="movie.id"
-      :title="movie.title"
-      :length="movie.length"
-      :image="movie.poster_url"
+      :movie="movie"
     />
+
+   
   </div>
-    
- 
+
+  
 </section>
   
 </template>
@@ -20,16 +27,26 @@
 <script>
 import MainTitle from "../components/MainTitle.vue";
 import MovieCard from '../components/MovieCard.vue';
+import BaseInput from '../components/BaseInput.vue';
 import axios from 'axios';
 
 export default {
-  components: { MainTitle, MovieCard },
+  components: { MainTitle, MovieCard, BaseInput },
 
   data(){
-  return{
+  return {
     movies: [],
     errorMsg: '',
+    query: '',
   }
+  },
+
+  computed:{
+    findMovies(){
+    const foundMovies = this.movies.filter(movie => movie.title.toLowerCase()
+    .includes(this.query.toLowerCase()));
+     return foundMovies;
+    }
   },
 
   methods:{
@@ -43,11 +60,13 @@ export default {
           console.log(this.errorMsg)
       }
      
-    }
+    },
+  
   },
   mounted(){
     this.fetchData()
-  }
+  },
+  
 };
 
 </script>
@@ -60,7 +79,7 @@ export default {
   justify-content: center;
 
   align-items: center;
-  width: 90%;
+  width: 97%;
   max-width: 1440px;
   margin: 0 auto;
 }
