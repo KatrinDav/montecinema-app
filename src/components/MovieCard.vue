@@ -1,28 +1,35 @@
 <template>
+ <router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
   <div class="movie-card">
-    <h2>{{ title }}</h2>
-    <p>{{ length }}</p>
+    <h2>{{ movie.title }}</h2>
+    <p>{{ setLength(movie.length) }}</p>
     <div class="movie-card__image">
-      <img :src="image" alt="movie-image" />
+      <img :src="movie.poster_url" alt="movie-image" />
     </div>
-    <button class="movie-card__action">Action</button>
+    <div class="movie-card__genre">{{movie.genre.name}}</div>
   </div>
+   </router-link>
+  
 </template>
 
 <script>
 export default {
   name: "MovieCard",
   props: {
-    title: {
-      type: String,
-    },
-    length: {
-      type: Number
-    },
-    image: {
-      type: String,
+    movie: {
+      type: Object,
+      required: true,
     },
   },
+  methods:{
+    setLength(inMinutes){
+      const hours = Math.floor(inMinutes/60);
+      const minutes = `${inMinutes%60}`.slice(-2);
+
+      return `${hours}h ${minutes} min`
+
+    }
+  }
 };
 </script>
 
@@ -30,8 +37,8 @@ export default {
 @media (min-width: 0px) {
   .movie-card {
     width: 327px;
-    height: 450px;
-  max-height: 450px;
+    height: 339x;
+    max-height: 400px;
     border-radius: 8px;
     padding: 24px;
     background: $cl-white;
@@ -56,17 +63,28 @@ export default {
       color: $cl-grey;
       padding: 13px 0;
     }
-    &__action{
+    &__genre{
       margin-top: 23px;
+      width: 83px;
+      height: 32px;
+      border-radius: 24px;
+      background-color: $cl-pink;
+      padding: 16px;
+      color: $cl-light-red;
+      font-size:$fs-xs;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
     }
   }
 
   .movie-card__image {
     width: 100%;
-    height: 291px;
+    height: 191px;
     overflow: hidden;
     margin-top: 17px;
-    background-origin: content-box;
+    background-origin: border-box;
     background-position: center;
     background-size: contain;
     img {
@@ -80,8 +98,10 @@ export default {
 @media (min-width: 932px) {
 
   .movie_card {
-    width: 440px;
-    height: 435px;
+    width: 444px;
+    height: 371x;
+    max-height: 400px;
+  
   }
 
   .movie_card_image {
@@ -90,10 +110,8 @@ export default {
 }
 
 @media (min-width: 1400px) {
-
   .movie-card {
     width: 421px;
-    height: 470px;
     padding: 40px;
     padding-bottom: 50px;
   }
