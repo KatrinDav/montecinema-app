@@ -15,17 +15,17 @@
 
       <div class="main_image"></div>
     </section>
-    <MoviesList />
+    <!-- <MoviesList /> -->
   </div>
 </template>
 
 <script>
-import MoviesList from "../components/MoviesList.vue";
+// import MoviesList from "../components/MoviesList.vue";
 import MainTitle from "../components/MainTitle.vue";
 export default {
   name: "HomePage",
   components: {
-    MoviesList,
+    // MoviesList,
     MainTitle,
   },
 };
