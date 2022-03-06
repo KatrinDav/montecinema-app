@@ -5,7 +5,7 @@
     <div class="movie-card__image">
       <img :src="image" alt="movie-image" />
     </div>
-    <button>Action</button>
+    <button class="movie-card__action">Action</button>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
       type: String,
     },
     length: {
-      type: String,
+      type: Number
     },
     image: {
       type: String,
@@ -29,16 +29,20 @@ export default {
 <style lang="scss">
 @media (min-width: 0px) {
   .movie-card {
-    width: 317px;
-    min-height: 300px;
+    width: 327px;
+    height: 450px;
+  max-height: 450px;
     border-radius: 8px;
     padding: 24px;
     background: $cl-white;
     box-shadow: 0px 24px 78px rgba(0, 0, 0, 0.08),
       0px 5.36071px 17.4223px rgba(0, 0, 0, 0.0238443),
       0px 1.59602px 5.18708px rgba(0, 0, 0, 0.0161557);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex-grow: 0;
-    margin: 12px 0px;
+    margin: 15px;
     font-family: $ff-primary;
     color: $cl-dark;
 
@@ -46,23 +50,34 @@ export default {
       font-size: $fs-large;
       font-weight: 700;
     }
+    p{
+      font-family: $ff-primary;
+      font-size:$fs-xs;
+      color: $cl-grey;
+      padding: 13px 0;
+    }
+    &__action{
+      margin-top: 23px;
+    }
   }
 
   .movie-card__image {
     width: 100%;
+    height: 291px;
+    overflow: hidden;
     margin-top: 17px;
+    background-origin: content-box;
+    background-position: center;
+    background-size: contain;
     img {
       width: 100%;
-      /* height: auto; */
-      height: 191px;
+      height: auto;
+     
     }
   }
 }
 
 @media (min-width: 932px) {
-  .movies-content > .movie-card:nth-child(3) {
-    display: none;
-  }
 
   .movie_card {
     width: 440px;
@@ -75,9 +90,6 @@ export default {
 }
 
 @media (min-width: 1400px) {
-  .movies_content > .movie-card:nth-child(3) {
-    display: inline;
-  }
 
   .movie-card {
     width: 421px;
