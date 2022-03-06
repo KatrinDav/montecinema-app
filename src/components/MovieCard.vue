@@ -1,5 +1,4 @@
 <template>
- <router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
   <div class="movie-card">
     <h2>{{ movie.title }}</h2>
     <p>{{ setLength(movie.length) }}</p>
@@ -8,8 +7,6 @@
     </div>
     <div class="movie-card__genre">{{movie.genre.name}}</div>
   </div>
-   </router-link>
-  
 </template>
 
 <script>
