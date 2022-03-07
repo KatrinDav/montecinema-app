@@ -27,6 +27,13 @@ const routes = [
         name: 'Login',
         component: () => import('@/pages/LoginPage.vue'),
     },
+
+    {
+        path: '/movies/:movieId',
+        name: 'Movie',
+        component: () => import('@/components/MovieItem.vue'),
+        props: true,
+    },
     {
         path: '*',
         redirect: '/'
