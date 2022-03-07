@@ -9,14 +9,13 @@
       v-model="query"/>
   </div>
   <div class="movies-container">
-     
+ 
      <MovieCard
       v-for="movie in movies"
       :key="movie.id"
       :movie="movie"
     />
-
-   
+ 
   </div>
 
   

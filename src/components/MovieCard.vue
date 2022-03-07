@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-card">
+   <div class="movie-card">
     <h2>{{ movie.title }}</h2>
     <p>{{ setLength(movie.length) }}</p>
     <div class="movie-card__image">
@@ -7,6 +7,8 @@
     </div>
     <div class="movie-card__genre">{{movie.genre.name}}</div>
   </div>
+ 
+  
 </template>
 
 <script>
@@ -43,7 +45,7 @@ export default {
       0px 5.36071px 17.4223px rgba(0, 0, 0, 0.0238443),
       0px 1.59602px 5.18708px rgba(0, 0, 0, 0.0161557);
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
     justify-content: space-between;
     flex-grow: 0;
     margin: 15px;

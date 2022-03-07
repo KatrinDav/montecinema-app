@@ -1,7 +1,13 @@
 <template>
+<div > 
   <router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
-    {{ movie.title }}
-  </router-link>
+   <h1>
+     {{movie.title}}
+   </h1>
+    </router-link>
+  
+</div>
+
 </template>
 
 <script>
@@ -11,6 +17,10 @@ export default {
       type: Object,
       required: true,
     },
+    movieId:{
+      type: Number,
+      required: true,
+    }
   },
 };
 </script>

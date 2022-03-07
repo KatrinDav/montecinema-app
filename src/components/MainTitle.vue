@@ -42,7 +42,13 @@ export default {
     line-height: 100%;
     letter-spacing: -0.01em;
     padding: 40px 0;
-    /* text-align: left; */
+   
   }
 }
+// @media (min-width: 1280px) {
+//   .header-section{
+//       text-align: left;
+//   }
+   
+// }
 </style>

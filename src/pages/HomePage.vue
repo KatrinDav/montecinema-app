@@ -15,12 +15,11 @@
 
       <div class="main_image"></div>
     </section>
-    <!-- <MoviesList /> -->
+
   </div>
 </template>
 
 <script>
-// import MoviesList from "../components/MoviesList.vue";
 import MainTitle from "../components/MainTitle.vue";
 export default {
   name: "HomePage",
@@ -158,8 +157,8 @@ export default {
 
   .main_intro .wrapper {
     width: 55%;
-    text-align: left;
     padding-left: 80px;
+    text-align: left;
   }
 
   .main_intro .title {
