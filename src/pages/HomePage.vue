@@ -24,7 +24,6 @@ import MainTitle from "../components/MainTitle.vue";
 export default {
   name: "HomePage",
   components: {
-    // MoviesList,
     MainTitle,
   },
 };
