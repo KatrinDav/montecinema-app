@@ -77,7 +77,6 @@ export default {
   methods: {
     onSubmit() {
       if (this.isFormValid) {
-        console.log(this.email, this.password);
         this.password = "";
         this.email = "";
         this.isPasswordTouched = false;
@@ -107,7 +106,7 @@ export default {
 @media (min-width: 932px) {
   .form-wrapper {
     width: 600px;
-    height: 490px;
+    min-height: 490px;
     border-radius: 24px;
     padding: 64px;
     padding-top: 30px;
@@ -117,8 +116,8 @@ export default {
     &__action{
       width: 100%;
       display: flex;
-      // background-color: yellow;
       justify-content: space-between;
+      margin-top: 35px;
 
     }
   }

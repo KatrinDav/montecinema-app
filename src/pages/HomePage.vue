@@ -15,13 +15,6 @@
 
       <div class="main_image"></div>
     </section>
-    <div>
- <BaseButton caption="Login"/>
-    <BaseButton buttonType="secondary" caption="Register"/>
-    </div>
-     
-  
-
     <MoviesList />
   </div>
 </template>

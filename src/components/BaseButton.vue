@@ -32,7 +32,6 @@ export default {
 <style lang="scss">
 
 .base-button{
-    width: 110px;
     height: 48px;
     padding: 16px 30px;
     border-radius: 24px;
@@ -55,7 +54,6 @@ export default {
     }
 
     &--secondary{
-        width: 130px;
         background-color: $cl-white;
         color: $cl-cherry-red;
         letter-spacing: 0.015em;
