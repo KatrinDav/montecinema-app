@@ -27,20 +27,32 @@
       >
         Contact us
       </router-link>
+
+    
     </nav>
-    <div class="mobile-nav"><span></span> <span></span> <span></span></div>
-    <div class="desktop-nav">
-      <a href="#" class="register">Register</a>
+    <div class="nav-menu__action">
+        <router-link
+        :to="{ name: 'Register' }"
+        class="nav-menu__action register"
+        exact-active-class="nav-menu__item--active"
+      >
+         <BaseButton caption="Register" buttonType="secondary"/>
+      </router-link>
+     
       <router-link :to="{ name: 'Login' }">
-        <button class="btn_login">Login</button>
+         <BaseButton caption="Login" />
       </router-link>
     </div>
+
+    <div class="mobile-nav"><span></span> <span></span> <span></span></div>
   </header>
 </template>
 
 <script>
+import BaseButton from '../components/BaseButton.vue';
 export default {
   name: "TopHeader",
+  components: {BaseButton}
 };
 </script>
 
@@ -125,39 +137,16 @@ export default {
     }
   }
 
-  .desktop-nav {
+  .nav-menu__action {
     display: flex;
     flex-direction: row;
   }
 
-  .desktop-nav .register {
-    margin-right: 20px;
-    padding: 16px 30px;
+  .nav-menu__action .register {
     text-decoration: none;
-    font-family: $ff-primary-alt;
-    font-weight: 500;
-    color: $cl-cherry-red;
-    letter-spacing: 0.015em;
+    margin-right: 25px;
   }
 
-  .desktop-nav .btn_login {
-    width: 110px;
-    height: 48px;
-    padding: 16px 30px;
-    border-radius: 24px;
-    background-color: $cl-cherry-red;
-    border: none;
-    color: $cl-white;
-    font-family: $ff-primary-alt;
-    font-size: $fs-small;
-    font-weight: 500;
-    line-height: 100%;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .desktop-nav .btn_login:hover {
-    background-color: $cl-red;
-  }
+  
 }
 </style>
