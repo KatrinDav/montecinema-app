@@ -9,12 +9,19 @@
             exist. Yikes.
           </p>
         </div>
-
-        <button class="btn_large">Book a ticket</button>
+        <BaseButton buttonType="large" caption="Book a ticket"/>
+   
       </div>
 
       <div class="main_image"></div>
     </section>
+    <div>
+ <BaseButton caption="Login"/>
+    <BaseButton buttonType="secondary" caption="Register"/>
+    </div>
+     
+  
+
     <MoviesList />
   </div>
 </template>
@@ -22,11 +29,13 @@
 <script>
 import MoviesList from "../components/MoviesList.vue";
 import MainTitle from "../components/MainTitle.vue";
+import BaseButton from '../components/BaseButton.vue';
 export default {
   name: "HomePage",
   components: {
     MoviesList,
     MainTitle,
+    BaseButton
   },
 };
 </script>
@@ -61,26 +70,6 @@ export default {
     padding-bottom: 35px;
   }
 
-  .btn_large {
-    display: block;
-    width: 310px;
-    height: 64px;
-    border-radius: 30px;
-    padding: 20px, 40px, 20px, 40px;
-    margin: 0 auto;
-    background-color: $cl-cherry-red;
-    color: $cl-white;
-    font-family: $ff-primary-alt;
-    font-weight: 500;
-    font-size: $fs-medium-alt;
-    cursor: pointer;
-    border: none;
-    transition: 0.3s;
-  }
-
-  .btn_large:hover {
-    background-color: $cl-red;
-  }
 
   .btn_large:active {
     background-color: $cl-red;
