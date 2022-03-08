@@ -1,13 +1,15 @@
 <template>
   <div class="center">
-    <MainTitle text="This is Screening Page" />
+   <ScreeningHeader sizeType="large"/>
   </div>
 </template>
 
 
 <script>
-import MainTitle from "../components/MainTitle.vue";
+
+import ScreeningHeader from '../components/ScreeningHeader.vue';
 export default {
-  components: { MainTitle },
+  name: 'ScreeningPage',
+  components: {  ScreeningHeader },
 };
 </script>
