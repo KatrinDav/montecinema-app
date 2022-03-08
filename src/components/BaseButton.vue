@@ -1,5 +1,5 @@
 <template>
-    <button :class="buttonClasses" @click="$emit('click')">{{caption}}</button>
+    <button :class="buttonClasses" @click="$emit('click')" :type="type">{{caption}}</button>
 </template>
 
 <script>
@@ -12,6 +12,10 @@ export default {
         },
         caption:{
              type: String,
+        },
+        type: {
+            type: String,
+            default: 'button'
         }
     },
     computed: {
