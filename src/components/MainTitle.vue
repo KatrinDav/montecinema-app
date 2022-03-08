@@ -45,10 +45,10 @@ export default {
    
   }
 }
-// @media (min-width: 1280px) {
-//   .header-section{
-//       text-align: left;
-//   }
+@media (min-width: 1280px) {
+  .header-section{
+      text-align: left;
+  }
    
-// }
+}
 </style>

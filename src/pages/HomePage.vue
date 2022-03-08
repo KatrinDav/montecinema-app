@@ -44,13 +44,6 @@ export default {
     margin: 0 auto;
   }
 
-  .main_intro .title h1 {
-    font-family: $ff-secondary;
-    font-size: $fs-large-alt;
-    line-height: 49px;
-    padding: 35px 0;
-  }
-
   .main_intro .title p {
     font-family: $ff-primary-alt;
     font-size: $fs-medium;
@@ -163,6 +156,7 @@ export default {
   .main_intro .title {
     width: 100%;
     padding-top: 50px;
+ 
   }
 
   .main_intro .title p {
