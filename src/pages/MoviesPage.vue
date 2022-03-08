@@ -41,7 +41,7 @@ export default {
   },
 
   computed:{
-    findMovies(){
+    filteredMovies(){
     const foundMovies = this.movies.filter(movie => movie.title.toLowerCase()
     .includes(this.query.toLowerCase()));
      return foundMovies;
