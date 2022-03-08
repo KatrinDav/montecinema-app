@@ -20,8 +20,10 @@
         <p>At least one digit</p>
     </div>
     <div class="form-wrapper__action">
+       <router-link :to="{ name: 'Login' }">
       <BaseButton caption="Log in instead" buttonType="secondary"/>
-      <BaseButton caption="Next step"/>
+     </router-link>
+      <BaseButton caption="Next step" type="submit"/>
     </div>
    
   </form>
@@ -67,12 +69,8 @@ export default {
     },
 
     isFormValid() {
-      if (this.email && this.password) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+      return !!(this.email && this.password) 
+    }
   },
   methods: {
     onSubmit() {
