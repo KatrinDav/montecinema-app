@@ -28,6 +28,7 @@ import MainTitle from "../components/MainTitle.vue";
 import MovieCard from '../components/MovieCard.vue';
 import BaseInput from '../components/BaseInput.vue';
 import axios from 'axios';
+import {BASE_URL} from '../helpers/index';
 
 export default {
   components: { MainTitle, MovieCard, BaseInput },
@@ -51,7 +52,7 @@ export default {
   methods:{
     async fetchData(){
       try{
-         const response = await axios.get('http://localhost:3000/movies');
+         const response = await axios.get(`${BASE_URL}/movies`);
          console.log(response.data)
          this.movies = response.data;
       } catch{
