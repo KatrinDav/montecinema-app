@@ -27,7 +27,7 @@
 <script>
 import MainTitle from "../components/MainTitle.vue";
 import BaseButton from '../components/BaseButton.vue';
-import ScreeningHeader from '../components/ScreeningHeader.vue';
+import ScreeningHeader from '../components/ScreeningsHeader.vue';
 
 export default {
   name: "HomePage",
