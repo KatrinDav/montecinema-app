@@ -16,7 +16,7 @@
     </section>
 
     <section class="screening">
-      <ScreeningHeader/>
+      <ScreeningsHeader/>
    
     </section>
 
@@ -27,14 +27,14 @@
 <script>
 import MainTitle from "../components/MainTitle.vue";
 import BaseButton from '../components/BaseButton.vue';
-import ScreeningHeader from '../components/ScreeningsHeader.vue';
+import ScreeningsHeader from '../components/ScreeningsHeader.vue';
 
 export default {
   name: "HomePage",
   components: {
     MainTitle,
     BaseButton,
-    ScreeningHeader,
+    ScreeningsHeader,
   },
 
 };
