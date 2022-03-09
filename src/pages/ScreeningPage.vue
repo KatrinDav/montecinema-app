@@ -1,15 +1,28 @@
 <template>
-  <div class="center">
-   <ScreeningHeader sizeType="large"/>
+  <div class="page-wrapper">
+   <ActionBar name="Screenings"/>
+   <ScreeningsHeader sizeType="large"/>
+   <ScreeningsList/>
   </div>
 </template>
 
 
 <script>
 
-import ScreeningHeader from '../components/ScreeningHeader.vue';
+import ScreeningsHeader from '../components/ScreeningsHeader.vue';
+import ScreeningsList from '../components/ScreeningsList.vue';
+import ActionBar from '../components/ActionBar.vue';
 export default {
   name: 'ScreeningPage',
-  components: {  ScreeningHeader },
+  components: {  ScreeningsHeader, ScreeningsList, ActionBar },
 };
 </script>
+
+<style lang="scss">
+.page-wrapper{
+    width: 92%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+</style>
