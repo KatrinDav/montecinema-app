@@ -27,18 +27,18 @@ export default {
     methods:{
     setLength(inMinutes){
       const hours = Math.floor(inMinutes/60);
-      const minutes = `${inMinutes%60}`.slice(-2);
+      const minutes = `${inMinutes%60}`;
 
       return `${hours}h ${minutes} min`
-
-  }
+      },
     }
 }
 </script>
 
 <style lang="scss">
-
 @media(min-width: 0px){
+
+
     .screening-card{
     width: 100%;
     height: 172px;
@@ -51,8 +51,8 @@ export default {
     margin-top: 30px;
 
     &__image{
-        width: 68px;
-        height: 68px;
+        min-width: 68px;
+        height: 88px;
         object-fit: contain;
         background-position: center;
         background-size: contain;
@@ -108,7 +108,7 @@ export default {
           margin-left: 15px;
 
     }
-}
+    }
 @media(min-width: 690px){
     .screening-card{
     height: 212px;
