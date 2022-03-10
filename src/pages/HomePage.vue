@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <section class="main_intro">
       <div class="wrapper">
         <div class="title">
@@ -12,22 +12,32 @@
         <BaseButton buttonType="large" caption="Book a ticket"/>
    
       </div>
-
       <div class="main_image"></div>
     </section>
 
+    <section class="screening">
+      <ScreeningsHeader/>
+   
+    </section>
+
+    
   </div>
 </template>
 
 <script>
 import MainTitle from "../components/MainTitle.vue";
 import BaseButton from '../components/BaseButton.vue';
+import ScreeningsHeader from '../components/ScreeningsHeader.vue';
+
 export default {
   name: "HomePage",
   components: {
     MainTitle,
-    BaseButton
+    BaseButton,
+    ScreeningsHeader,
+
   },
+
 };
 </script>
 
@@ -85,13 +95,17 @@ export default {
   .more_info p span {
     display: none;
   }
+  
 }
 
 @media (min-width: 932px) {
+   .container{
+       max-width: 92%;
+       margin: 0 auto;
+  }
   .main_intro {
     padding-bottom: 65px;
-    width: 92%;
-    margin: 0 auto;
+   
   }
 
   .main_intro .title {
@@ -118,13 +132,15 @@ export default {
   .btn_large {
     margin-bottom: 40px;
   }
+
 }
 
 @media (min-width: 1280px) {
+  
   .main_intro {
     height: 95vh;
     max-height: 678px;
-    max-width: 1344px;
+    // max-width: 1344px;
     padding-bottom: 0;
     margin: 0 auto;
   }
@@ -156,5 +172,6 @@ export default {
   .btn_large {
     margin-left: 0;
   }
+  
 }
 </style>
