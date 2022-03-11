@@ -11,7 +11,7 @@
   <div class="movies-container">
  
      <MovieCard
-      v-for="movie in movies"
+      v-for="movie in filteredMovies"
       :key="movie.id"
       :movie="movie"
     />
@@ -66,6 +66,7 @@ export default {
   mounted(){
     this.fetchData()
   },
+ 
   
 };
 
