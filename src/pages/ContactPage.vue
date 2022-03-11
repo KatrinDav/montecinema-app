@@ -2,7 +2,7 @@
 <div class="page-wrapper"> 
    <ActionBar name="Contact us"/>
    <header>
-      <MainTitle text="Contact us" />
+      <MainTitle text="Contact us" positionType="left"/>
    </header>
   
    <div class="main-contact">
