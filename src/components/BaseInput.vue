@@ -32,7 +32,10 @@ export default {
       type: String,
       default: "",
     },
+   
   },
+
+
 };
 </script>
 
@@ -65,11 +68,15 @@ export default {
       border: 1px solid $cl-light-blue;
       background-color: $cl-blue;
     }
+
+    
   }
 }
 @media (min-width: 582px) {
   .base-input__input {
-    width: 472px;
+    width: 100%;
+    min-width: 472px;
   }
+
 }
 </style>
