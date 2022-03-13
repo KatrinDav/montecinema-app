@@ -3,17 +3,10 @@
     <span class="select__label">Category</span>
     <select name="categories" class="select"
     @change="$emit('input', $event.target.value)" >
-    <option selected value="All">All categories</option>
-    <option value="Thriller">Thriller</option>
-    <option value="Comedy">Comedy</option>
-    <option value="Fantasy">Fantasy</option>
-    <option value="Sci-Fi">Sci-Fi</option>
-    <option value="Romance">Romance</option>
-    <option value="Family">Family</option>
-    <option value="Horror">Horror</option>
-    <option value="Documentary">Documentary</option>
-    <option value="Action">Action</option>
-</select>
+     <option selected value="All">All categories</option>
+     <option v-for="option in options" :key="option.id" :value="option.value">{{option.value}}</option>
+
+   </select>
 
 </label>
 
@@ -21,36 +14,27 @@
 </template>
 
 <script>
-// import axios from 'axios';
-// import {BASE_URL} from '../helpers/index';
+
 export default {
     name: 'SelectInput',
 
     data(){
         return {
-            options: [],
-            errorMsg:'',
+            options: [
+                {id: 1, value:'Thriller'},
+                {id: 2, value: 'Comedy'},
+                {id: 3, value: 'Fantasy'},
+                {id: 4, value: 'Sci-Fi'},
+                {id: 5, value: 'Romance'},
+                {id: 6, value: 'Family'},
+                {id: 7, value: 'Horror'},
+                {id: 8, value: 'Documentary'},
+                {id: 9, value: 'Action'},
+
+            ],
             selected: 'All',
         }
     },
-
-    // methods:{
-    // async fetchData(){
-    //   try{
-    //      const response = await axios.get(`${BASE_URL}/movie_genres`);
-    //      console.log(response.data)
-    //      this.options = response.data;
-    //   } catch{
-    //       this.errorMsg = 'Something went wrong...'
-    //       console.log(this.errorMsg)
-    //   }
-     
-    // },
-  
-//   },
-//   mounted(){
-//     this.fetchData()
-//   },
 }
 </script>
 
@@ -83,9 +67,7 @@ export default {
     line-height: 21px;
     color: $cl-dark;
 
-  
 
-    
   }
 
 
