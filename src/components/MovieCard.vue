@@ -1,4 +1,5 @@
 <template>
+<router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
    <div class="movie-card">
     <h2>{{ movie.title }}</h2>
     <p>{{ setLength(movie.length) }}</p>
@@ -7,6 +8,7 @@
     </div>
     <div class="movie-card__genre">{{movie.genre.name}}</div>
   </div>
+  </router-link>
  
   
 </template>
@@ -50,10 +52,20 @@ export default {
     margin: 15px;
     font-family: $ff-primary;
     color: $cl-dark;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover{
+      box-shadow: 0px 34px 88px rgba(0, 0, 0, 0.09),
+      0px 9.36071px 27.4223px rgba(39, 32, 32, 0.064),
+      0px 8.59602px 8.18708px rgba(66, 51, 51, 0.096);
+    }
+  
 
     h2 {
       font-size: $fs-large;
       font-weight: 700;
+  
     }
     p{
       font-family: $ff-primary;

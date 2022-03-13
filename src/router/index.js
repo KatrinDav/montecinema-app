@@ -31,7 +31,7 @@ const routes = [
     {
         path: '/movies/:movieId',
         name: 'Movie',
-        component: () => import('@/components/MovieItem.vue'),
+        component: () => import('@/components/MovieDetails.vue'),
         props: true,
     },
     {
