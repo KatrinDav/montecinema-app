@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <section class="main_intro">
+  <div class="page-wrapper">
+    <section class="main-intro">
       <div class="wrapper">
         <div class="title">
           <MainTitle text="Welcome to the best cinema in Monterail" />
@@ -9,15 +9,29 @@
             exist. Yikes.
           </p>
         </div>
-        <BaseButton buttonType="large" caption="Book a ticket"/>
+        <BaseButton buttonType="primary" caption="Book a ticket"/>
    
       </div>
       <div class="main_image"></div>
     </section>
-
+    <div class="more-info">
+      <p>soon <span>in the cinema</span></p>
+      <p>see all</p>
+    </div>
+    <div class="movies">
+      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
+    </div>
     <section class="screening">
       <ScreeningsHeader/>
-   
+      <ScreeningsList/>
+    </section>
+
+    <section class="contact">
+      <MainTitle text="Contact us"/>
+      <div class="contact-details">
+      <ContactInfo/>
+      </div>
+    
     </section>
 
     
@@ -28,6 +42,13 @@
 import MainTitle from "../components/MainTitle.vue";
 import BaseButton from '../components/BaseButton.vue';
 import ScreeningsHeader from '../components/ScreeningsHeader.vue';
+import ScreeningsList from '../components/ScreeningsList.vue';
+import MovieCard from '../components/MovieCard.vue';
+import ContactInfo from '../components/ContactInfo.vue';
+import photo1 from "../assets/predator.png";
+import photo2 from "../assets/commando.png";
+import photo3 from "../assets/terminator.png";
+
 
 export default {
   name: "HomePage",
@@ -35,14 +56,32 @@ export default {
     MainTitle,
     BaseButton,
     ScreeningsHeader,
+    ScreeningsList,
+    MovieCard,
+    ContactInfo,
+    
   },
+
+  data(){
+    return {
+      movies: [
+        {id: '1a', title: 'Predator', length: 90, poster_url: photo1, genre: {id: 1, name: 'Action'}} ,
+        {id: '2b', title: 'Commando', length: 90, poster_url: photo2, genre: {id: 2, name: 'Action'}},
+        {id: '3c', title: 'Terminator 2', length: 90, poster_url: photo3, genre: {id: 3, name: 'Action'}},
+      ]
+    }
+  }
 
 };
 </script>
 
 <style lang="scss">
 @media (min-width: 0px) {
-  .main_intro {
+
+  .page-wrapper{
+    @include pageCenter();
+  }
+  .main-intro {
     background-color: $cl-pink;
     color: $cl-dark;
     text-align: center;
@@ -50,12 +89,12 @@ export default {
     width: 100%;
   }
 
-  .main_intro .title {
+  .main-intro .title {
     width: 75%;
     margin: 0 auto;
   }
 
-  .main_intro .title p {
+  .main-intro .title p {
     font-family: $ff-primary-alt;
     font-size: $fs-medium;
     line-height: 37px;
@@ -63,38 +102,46 @@ export default {
     padding-bottom: 35px;
   }
 
-
-  .btn_large:active {
-    background-color: $cl-red;
-    border: 5px solid $cl-light-red;
-    outline: 5px solid $cl-light-red;
-    outline-offset: -5px;
-  }
-
-  .more_info {
+  .more-info {
     width: 92%;
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
+
+    p {
+      font-family: $ff-primary-alt;
+      font-size: $fs-medium;
+      font-weight: 700;
+      color: $cl-dark;
+      text-transform: uppercase;
+
+      &:nth-child(2){
+         color: $cl-cherry-red;
+      }
+
+      span{
+          display: none;
+      }
+    }
   }
 
-  .more_info p {
-    font-family: $ff-primary-alt;
-    font-size: $fs-medium;
-    font-weight: 700;
-    color: $cl-dark;
-    text-transform: uppercase;
+  .movies{
+    @include flexCenter();
+    flex-direction: column;
+    margin-top: 50px;
   }
 
-  .more_info p:nth-child(2) {
-    color: $cl-cherry-red;
+  .contact{
+    width: 100%;
+    @include flexCenter();
+    flex-direction: column;
   }
-
-  .more_info p span {
-    display: none;
+  .contact-details{
+    width: 400px;
+    height: 350px;
+    background-color: $cl-athens-grey;
   }
-  
 }
 
 @media (min-width: 932px) {
@@ -124,14 +171,29 @@ export default {
     padding-bottom: 10px;
   }
 
-  .more_info p span {
+  .more-info p span {
     display: inline;
   }
 
-  .btn_large {
-    margin-bottom: 40px;
+  .more-info{
+    width: 100%;
   }
 
+  .movies{
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+  }
+  
+  .movies > .movie-card:nth-child(3) {
+    display: none;
+  }
+ .contact-details{
+    width: 600px;
+    height: 400px;
+    padding: 30px;
+ 
+  }
 }
 
 @media (min-width: 1280px) {
@@ -168,9 +230,12 @@ export default {
     background-origin: content-box;
   }
 
-  .btn_large {
-    margin-left: 0;
+ 
+  @media (min-width: 1440px) {
+   .movies > .movie-card:nth-child(3) {
+    display: inline;
   }
+}
   
 }
 </style>
