@@ -34,16 +34,12 @@ import MovieCard from '../components/MovieCard.vue';
 import BaseInput from '../components/BaseInput.vue';
 import SelectInput from '../components/SelectInput.vue'
 import ActionBar from '../components/ActionBar.vue';
-import axios from 'axios';
-import {BASE_URL} from '../helpers/index';
 
 export default {
   components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 
   data(){
   return {
-    movies: [],
-    errorMsg: '',
     query: '',
     selected: 'All',
     
@@ -51,6 +47,9 @@ export default {
   },
 
   computed:{
+    movies(){
+      return this.$store.state.movies
+    },
     filteredByQuery(){
     return this.movies.filter(movie => movie.title.toLowerCase().includes(this.query.toLowerCase()));
     },
@@ -62,22 +61,8 @@ export default {
     }
   },
 
-  methods:{
-    async fetchData(){
-      try{
-         const response = await axios.get(`${BASE_URL}/movies`);
-         console.log(response.data)
-         this.movies = response.data;
-      } catch{
-          this.errorMsg = 'Something went wrong...'
-          console.log(this.errorMsg)
-      }
-    },
-   
-  
-  },
-  mounted(){
-    this.fetchData()
+  async mounted(){
+    this.$store.dispatch('fetchMovies')
   },
  
   
