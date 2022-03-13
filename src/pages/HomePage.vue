@@ -23,6 +23,7 @@
     </div>
     <section class="screening">
       <ScreeningsHeader/>
+     
       <ScreeningsList/>
     </section>
 
@@ -70,7 +71,9 @@ export default {
         {id: '3c', title: 'Terminator 2', length: 90, poster_url: photo3, genre: {id: 3, name: 'Action'}},
       ]
     }
-  }
+  },
+ 
+
 
 };
 </script>
@@ -130,6 +133,10 @@ export default {
     @include flexCenter();
     flex-direction: column;
     margin-top: 50px;
+
+    a{
+      text-decoration: none;
+    }
   }
 
   .contact{
