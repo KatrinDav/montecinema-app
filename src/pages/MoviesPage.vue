@@ -1,24 +1,29 @@
 <template>
-<section>
-  <MainTitle text="All the Movies" />
+<section class="page-wrapper">
+  <ActionBar name="Movies"/>
+  <MainTitle text="All the movies" positionType="left"/>
   <div class="searchBar">
-    <BaseInput  
-      type="text"
-      label="search"
-      placeholder="Search for..."
-      v-model="query"/>
+    <div class="searchBar__input">
+       <BaseInput  
+        type="text"
+        label="search"
+        placeholder="What are you looking for?"
+        v-model="query"/>
+    </div>
+    <div class="searchBar__select">
+        <SelectInput v-model="selected"/>
+    </div>
   </div>
+ 
   <div class="movies-container">
  
      <MovieCard
-      v-for="movie in filteredMovies"
+      v-for="movie in filteredByGenre"
       :key="movie.id"
       :movie="movie"
     />
  
   </div>
-
-  
 </section>
   
 </template>
@@ -27,25 +32,33 @@
 import MainTitle from "../components/MainTitle.vue";
 import MovieCard from '../components/MovieCard.vue';
 import BaseInput from '../components/BaseInput.vue';
+import SelectInput from '../components/SelectInput.vue'
+import ActionBar from '../components/ActionBar.vue';
 import axios from 'axios';
 import {BASE_URL} from '../helpers/index';
 
 export default {
-  components: { MainTitle, MovieCard, BaseInput },
+  components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 
   data(){
   return {
     movies: [],
     errorMsg: '',
     query: '',
+    selected: 'All',
+    
   }
   },
 
   computed:{
-    filteredMovies(){
-    const foundMovies = this.movies.filter(movie => movie.title.toLowerCase()
-    .includes(this.query.toLowerCase()));
-     return foundMovies;
+    filteredByQuery(){
+    return this.movies.filter(movie => movie.title.toLowerCase().includes(this.query.toLowerCase()));
+    },
+
+    filteredByGenre(){
+      const filteredGenre = this.filteredByQuery.filter(movie => movie.genre.name === this.selected);
+
+      return this.selected === 'All' ? this.filteredByQuery : filteredGenre;
     }
   },
 
@@ -59,8 +72,8 @@ export default {
           this.errorMsg = 'Something went wrong...'
           console.log(this.errorMsg)
       }
-     
     },
+   
   
   },
   mounted(){
@@ -74,14 +87,48 @@ export default {
 
 
 <style lang="scss">
+
+.page-wrapper{
+    @include pageCenter();
+  
+   }
 .movies-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 50px;
+}
 
-  align-items: center;
-  width: 97%;
-  max-width: 1440px;
-  margin: 0 auto;
+.searchBar{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+   &__input{
+    width: 100%;
+   }
+
+  &__select{
+    width: 100%;
+    
+  }
+}
+
+@media(min-width: 785px){
+  .searchBar{
+   flex-direction: row;
+
+    &__input{
+    width: 66%;
+    margin-right: 30px;
+    }
+
+     &__select{
+    width: 33%;
+    
+  }
+  }
 }
 </style>
