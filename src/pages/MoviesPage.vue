@@ -82,6 +82,10 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
+  
+  a{
+    text-decoration: none;
+  }
 }
 
 .searchBar{
