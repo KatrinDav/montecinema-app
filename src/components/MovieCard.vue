@@ -36,7 +36,7 @@ export default {
 @media (min-width: 0px) {
   .movie-card {
     width: 327px;
-    max-height: 400px;
+    height: 400px;
     border-radius: 8px;
     padding: 24px;
     background: $cl-white;
@@ -79,7 +79,7 @@ export default {
 
   .movie-card__image {
     width: 100%;
-    height: 191px;
+    height: 192px;
     overflow: hidden;
     margin-top: 17px;
     background-origin: border-box;
@@ -98,16 +98,17 @@ export default {
   .movie_card {
     width: 444px;
     height: 371px;
-    max-height: 400px;
+    // max-height: 400px;
   
   }
 
   .movie_card_image {
     width: 364px;
+ 
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .movie-card {
     width: 421px;
     padding: 40px;

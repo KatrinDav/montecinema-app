@@ -37,6 +37,7 @@ export default {
     font-family: $ff-secondary;
     font-size: $fs-large-alt;
     line-height: 49px;
+    margin-top: 50px;
     padding: 35px 0;
     text-align: center;
 
@@ -45,9 +46,9 @@ export default {
       display: block;
     }
 
-    // &--left{
-    //    text-align: left;
-    // }
+    &--left{
+       text-align: left;
+    }
   }
   
 }

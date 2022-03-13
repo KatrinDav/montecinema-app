@@ -24,7 +24,6 @@ export default {
                 'base-button',
                 {'base-button--primary': this.buttonType === 'primary'},
                 {'base-button--secondary': this.buttonType === 'secondary'},
-                {'base-button--large': this.buttonType === 'large'}
             ]
 
         }
@@ -37,13 +36,14 @@ export default {
 
 .base-button{
     height: 48px;
-    padding: 16px 30px;
+    padding: 16px 34px;
     border-radius: 24px;
     border: none;
     font-family: $ff-primary-alt;
     font-size: $fs-small;
     font-weight: 500;
     line-height: 100%;
+    letter-spacing: 0.015em;
     cursor: pointer;
     transition: 0.3s;
 
@@ -63,20 +63,6 @@ export default {
         letter-spacing: 0.015em;
     }
 
-    &--large{
-         width: 310px;
-         height: 64px;
-         border-radius: 30px;
-         padding: 20px, 40px, 20px, 40px;
-         font-weight: 500;
-         font-size: $fs-medium-alt;
-          background-color: $cl-cherry-red;
-         color: $cl-white;
-
-           &:hover{
-            background-color: $cl-red;
-          }
-      }
 }
 
 </style>
