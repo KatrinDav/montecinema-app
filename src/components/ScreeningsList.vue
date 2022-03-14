@@ -11,8 +11,6 @@
 
 <script>
 import ScreeningCard from './ScreeningCard.vue';
-import {BASE_URL} from '../helpers/index';
-import axios from 'axios';
 
 export default {
     name: 'ScreeningsList',
@@ -20,28 +18,22 @@ export default {
 
     data(){
         return{
-            movies: [],
             errorMsg: '',
         }
     },
 
-    methods:{
-    async fetchData(){
-      try{
-         const response = await axios.get(`${BASE_URL}/movies`);
-         console.log(response.data)
-         this.movies = response.data;
-      } catch{
-          this.errorMsg = 'Something went wrong...'
-          console.log(this.errorMsg)
-      }
-     
+    computed:{
+        movies(){
+             return this.$store.state.movies;
+        },
+        screenings(){
+            return this.$store.state.screenings;
+        }
     },
-  
-  },
 
   mounted(){
-    this.fetchData()
+    this.$store.dispatch('fetchMovies')
+    // this.$store.dispatch('fetchScreenings')
   },
 }
 </script>

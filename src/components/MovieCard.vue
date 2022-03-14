@@ -1,4 +1,5 @@
 <template>
+<router-link :to="{ name: 'Movie', params: { movieId: movie.id } }">
    <div class="movie-card">
     <h2>{{ movie.title }}</h2>
     <p>{{ setLength(movie.length) }}</p>
@@ -7,6 +8,7 @@
     </div>
     <div class="movie-card__genre">{{movie.genre.name}}</div>
   </div>
+  </router-link>
  
   
 </template>
@@ -36,7 +38,7 @@ export default {
 @media (min-width: 0px) {
   .movie-card {
     width: 327px;
-    max-height: 400px;
+    height: 400px;
     border-radius: 8px;
     padding: 24px;
     background: $cl-white;
@@ -50,10 +52,20 @@ export default {
     margin: 15px;
     font-family: $ff-primary;
     color: $cl-dark;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+
+    &:hover{
+      box-shadow: 0px 34px 88px rgba(0, 0, 0, 0.09),
+      0px 9.36071px 27.4223px rgba(39, 32, 32, 0.064),
+      0px 8.59602px 8.18708px rgba(66, 51, 51, 0.096);
+    }
+  
 
     h2 {
       font-size: $fs-large;
       font-weight: 700;
+  
     }
     p{
       font-family: $ff-primary;
@@ -79,7 +91,7 @@ export default {
 
   .movie-card__image {
     width: 100%;
-    height: 191px;
+    height: 192px;
     overflow: hidden;
     margin-top: 17px;
     background-origin: border-box;
@@ -98,16 +110,17 @@ export default {
   .movie_card {
     width: 444px;
     height: 371px;
-    max-height: 400px;
+    // max-height: 400px;
   
   }
 
   .movie_card_image {
     width: 364px;
+ 
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .movie-card {
     width: 421px;
     padding: 40px;

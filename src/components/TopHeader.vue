@@ -62,10 +62,9 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 92%;
-    margin: 0 auto;
+    @include pageCenter();
     height: 73px;
-    margin-top: 27px;
+    margin-top: 37px;
     position: relative;
   }
 
@@ -121,15 +120,16 @@ export default {
   .nav-menu {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .nav-menu__item {
     text-decoration: none;
     margin: 0 35px;
+    padding-bottom: 10px;
     font-family: $ff-primary;
     color: $cl-grey;
-    margin-top: -20px;
+    // margin-top: -10px;
     font-size: $fs-normal;
 
     &--active {
