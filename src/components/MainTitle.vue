@@ -1,5 +1,8 @@
 <template>
-  <h1 :class="titleClasses" :positionType="positionType">
+  <h1
+    :class="titleClasses"
+    :positionType="positionType"
+  >
     {{ text }} <span>{{ subText }}</span>
   </h1>
 </template>
@@ -18,16 +21,16 @@ export default {
     },
     positionType: {
       type: String,
-    }
+    },
   },
-   computed: {
-        titleClasses(){
-            return [
-                'header-section',
-                {'header-section--left': this.positionType === 'left'},
-            ]
-        }
-   }
+  computed: {
+    titleClasses() {
+      return [
+        "header-section",
+        { "header-section--left": this.positionType === "left" },
+      ];
+    },
+  },
 };
 </script>
 
@@ -46,11 +49,10 @@ export default {
       display: block;
     }
 
-    &--left{
-       text-align: left;
+    &--left {
+      text-align: left;
     }
   }
-  
 }
 
 @media (min-width: 1015px) {
@@ -59,17 +61,6 @@ export default {
     line-height: 100%;
     letter-spacing: -0.01em;
     padding: 40px 0;
-
-    &--left{
-       text-align: left;
-    }
-   
   }
-}
-@media (min-width: 1280px) {
-  .header-section{
-      text-align: left;
-  }
-   
 }
 </style>
