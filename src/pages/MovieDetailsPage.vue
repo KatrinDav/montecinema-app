@@ -2,8 +2,7 @@
   <div>
 
     <h1>
-      Szczegolowe info filmu
-      {{$route.params.movieId}}
+
     </h1>
 
     <h2>{{movie.title}}</h2>
@@ -24,7 +23,7 @@
 
 <script>
 export default {
-  name: "MovieDetails",
+  name: "MovieDetailsPage",
   props: {
     movieId: {
       required: true,
