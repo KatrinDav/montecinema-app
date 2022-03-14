@@ -60,7 +60,6 @@ export default {
     ScreeningsList,
     MovieCard,
     ContactInfo,
-    
   },
 
   data(){
