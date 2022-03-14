@@ -16,12 +16,12 @@
     </section>
     <div class="more-info">
       <p>soon <span>in the cinema</span></p>
-      <p>see all</p>
+      <p class="showItems" @click="changeVisible()">see all</p>
     </div>
     <div class="movies">
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
     </div>
-    <section class="screening">
+    <section class="screening" v-if="isVisible">
       <ScreeningsHeader/>
      
       <ScreeningsList/>
@@ -69,9 +69,16 @@ export default {
         {id: '1a', title: 'Predator', length: 90, poster_url: photo1, genre: {id: 1, name: 'Action'}} ,
         {id: '2b', title: 'Commando', length: 90, poster_url: photo2, genre: {id: 2, name: 'Action'}},
         {id: '3c', title: 'Terminator 2', length: 90, poster_url: photo3, genre: {id: 3, name: 'Action'}},
-      ]
-    }
+      ],
+
+      isVisible: false,
+   }
   },
+  methods: {
+    changeVisible(){
+      this.isVisible = !this.isVisible
+    }
+  }
  
 
 
@@ -127,6 +134,9 @@ export default {
           display: none;
       }
     }
+  }
+  .showItems{
+    cursor: pointer;
   }
 
   .movies{
