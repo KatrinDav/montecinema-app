@@ -16,7 +16,7 @@
     </section>
     <div class="more-info">
       <p>soon <span>in the cinema</span></p>
-      <p class="showItems" @click="changeVisible()">see all</p>
+      <p class="showItems" @click="changeVisible">see all</p>
     </div>
     <div class="movies">
       <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>

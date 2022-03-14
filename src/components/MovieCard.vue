@@ -53,7 +53,7 @@ export default {
     font-family: $ff-primary;
     color: $cl-dark;
     cursor: pointer;
-    transition: 0.5s;
+    transition: box-shadow 0.5s;
 
     &:hover{
       box-shadow: 0px 34px 88px rgba(0, 0, 0, 0.09),

@@ -1,123 +1,122 @@
 <template>
-<section class="page-wrapper">
-  <ActionBar name="Movies"/>
-  <MainTitle text="All the movies" positionType="left"/>
-  <div class="searchBar">
-    <div class="searchBar__input">
-       <BaseInput  
-        type="text"
-        label="search"
-        placeholder="What are you looking for?"
-        v-model="query"/>
-    </div>
-    <div class="searchBar__select">
-        <SelectInput v-model="selected"/>
-    </div>
-  </div>
- 
-  <div class="movies-container">
- 
-     <MovieCard
-      v-for="movie in filteredByGenre"
-      :key="movie.id"
-      :movie="movie"
+  <section class="page-wrapper">
+    <ActionBar name="Movies" />
+    <MainTitle
+      text="All the movies"
+      positionType="left"
     />
- 
-  </div>
-</section>
-  
+    <div class="search-bar">
+      <div class="search-bar__input">
+        <BaseInput
+          type="text"
+          label="search"
+          placeholder="What are you looking for?"
+          v-model="query"
+        />
+      </div>
+      <div class="search-bar__select">
+        <SelectInput v-model="selected" />
+      </div>
+    </div>
+
+    <div class="movies-container">
+
+      <MovieCard
+        v-for="movie in filteredByGenre"
+        :key="movie.id"
+        :movie="movie"
+      />
+
+    </div>
+  </section>
+
 </template>
 
 <script>
 import MainTitle from "../components/MainTitle.vue";
-import MovieCard from '../components/MovieCard.vue';
-import BaseInput from '../components/BaseInput.vue';
-import SelectInput from '../components/SelectInput.vue'
-import ActionBar from '../components/ActionBar.vue';
+import MovieCard from "../components/MovieCard.vue";
+import BaseInput from "../components/BaseInput.vue";
+import SelectInput from "../components/SelectInput.vue";
+import ActionBar from "../components/ActionBar.vue";
 
 export default {
   components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 
-  data(){
-  return {
-    query: '',
-    selected: 'All',
-    
-  }
+  data() {
+    return {
+      query: "",
+      selected: "All",
+    };
   },
 
-  computed:{
-    movies(){
-      return this.$store.state.movies
+  computed: {
+    movies() {
+      return this.$store.state.movies;
     },
-    filteredByQuery(){
-    return this.movies.filter(movie => movie.title.toLowerCase().includes(this.query.toLowerCase()));
+    filteredByQuery() {
+      return this.movies.filter((movie) =>
+        movie.title.toLowerCase().includes(this.query.toLowerCase())
+      );
     },
 
-    filteredByGenre(){
-      const filteredGenre = this.filteredByQuery.filter(movie => movie.genre.name === this.selected);
+    filteredByGenre() {
+      const filteredGenre = this.filteredByQuery.filter(
+        (movie) => movie.genre.name === this.selected
+      );
 
-      return this.selected === 'All' ? this.filteredByQuery : filteredGenre;
-    }
+      return this.selected === "All" ? this.filteredByQuery : filteredGenre;
+    },
   },
 
-  async mounted(){
-    this.$store.dispatch('fetchMovies')
+  async mounted() {
+    this.$store.dispatch("fetchMovies");
   },
- 
-  
 };
-
 </script>
 
 
 <style lang="scss">
-
-.page-wrapper{
-    @include pageCenter();
-  
-   }
-.movies-container{
+.page-wrapper {
+  @include pageCenter();
+}
+.movies-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
-  
-  a{
+
+  a {
     text-decoration: none;
   }
 }
 
-.searchBar{
+.search-bar {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-
-   &__input{
+  &__input {
     width: 100%;
-   }
+  }
 
-  &__select{
+  &__select {
     width: 100%;
-    
   }
 }
 
-@media(min-width: 785px){
-  .searchBar{
-   flex-direction: row;
+@media (min-width: 785px) {
+  .search-bar {
+    flex-direction: row;
 
-    &__input{
-    width: 66%;
-    margin-right: 30px;
+    &__input {
+      width: 66%;
+      margin-right: 30px;
     }
 
-     &__select{
-    width: 33%;
-    
-  }
+    &__select {
+      width: 33%;
+    }
   }
 }
 </style>
