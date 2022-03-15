@@ -39,6 +39,12 @@ const routes = [
         name: 'Register',
         component: () => import('@/pages/RegisterPage.vue'),
     },
+     {
+        path: '/register_next_step',
+        name: 'Register-Next',
+        component: () => import('@/pages/RegisterPage2.vue'),
+    },
+
     {
         path: '*',
         redirect: '/'
