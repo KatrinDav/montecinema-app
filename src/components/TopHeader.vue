@@ -2,7 +2,10 @@
   <header class="header">
     <div class="header_logo">
       <router-link :to="{ name: 'Home' }">
-        <img src="../assets/logo.svg" alt="logo" />
+        <img
+          src="../assets/logo.svg"
+          alt="logo"
+        />
       </router-link>
     </div>
     <nav class="nav-menu">
@@ -28,19 +31,21 @@
         Contact us
       </router-link>
 
-    
     </nav>
     <div class="nav-menu__action">
-        <router-link
+      <router-link
         :to="{ name: 'Register' }"
         class="nav-menu__action register"
         exact-active-class="nav-menu__item--active"
       >
-         <BaseButton caption="Register" buttonType="secondary"/>
+        <BaseButton
+          caption="Register"
+          buttonType="secondary"
+        />
       </router-link>
-     
+
       <router-link :to="{ name: 'Login' }">
-         <BaseButton caption="Login" />
+        <BaseButton caption="Login" />
       </router-link>
     </div>
 
@@ -49,10 +54,10 @@
 </template>
 
 <script>
-import BaseButton from '../components/BaseButton.vue';
+import BaseButton from "../components/BaseButton.vue";
 export default {
   name: "TopHeader",
-  components: {BaseButton}
+  components: { BaseButton },
 };
 </script>
 
@@ -68,8 +73,12 @@ export default {
     position: relative;
   }
 
-  .desktop-nav {
+  .nav-menu {
     display: none;
+
+    &__action {
+      display: none;
+    }
   }
 
   .mobile-nav {
@@ -125,15 +134,26 @@ export default {
 
   .nav-menu__item {
     text-decoration: none;
-    margin: 0 35px;
+    margin: 0 25px;
     padding-bottom: 10px;
     font-family: $ff-primary;
     color: $cl-grey;
-    // margin-top: -10px;
     font-size: $fs-normal;
+    position: relative;
 
     &--active {
       font-weight: bold;
+      color: $cl-dark-alt;
+
+      &::after {
+        content: "";
+        border-bottom: 3px solid $cl-cherry-red;
+        position: absolute;
+        width: 140%;
+        left: -20%;
+        bottom: 0;
+        margin-bottom: -30px;
+      }
     }
   }
 
@@ -146,7 +166,11 @@ export default {
     text-decoration: none;
     margin-right: 25px;
   }
+}
 
-  
+@media (min-width: 1140px) {
+  .nav-menu__item {
+    margin: 0 35px;
+  }
 }
 </style>
