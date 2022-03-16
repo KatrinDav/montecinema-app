@@ -26,7 +26,7 @@
     </div>
     <div class="movies">
       <MovieCard
-        v-for="movie in movies"
+        v-for="movie in firstThreeMovies"
         :key="movie.id"
         :movie="movie"
       />
@@ -58,9 +58,6 @@ import ScreeningsHeader from "../components/ScreeningsHeader.vue";
 import ScreeningsList from "../components/ScreeningsList.vue";
 import MovieCard from "../components/MovieCard.vue";
 import ContactInfo from "../components/ContactInfo.vue";
-import photo1 from "../assets/predator.png";
-import photo2 from "../assets/commando.png";
-import photo3 from "../assets/terminator.png";
 
 export default {
   name: "HomePage",
@@ -75,36 +72,17 @@ export default {
 
   data() {
     return {
-      movies: [
-        {
-          id: "1a",
-          title: "Predator",
-          length: 90,
-          poster_url: photo1,
-          genre: { id: 1, name: "Action" },
-        },
-        {
-          id: "2b",
-          title: "Commando",
-          length: 90,
-          poster_url: photo2,
-          genre: { id: 2, name: "Action" },
-        },
-        {
-          id: "3c",
-          title: "Terminator 2",
-          length: 90,
-          poster_url: photo3,
-          genre: { id: 3, name: "Action" },
-        },
-      ],
-
       isVisible: false,
     };
   },
   methods: {
     changeVisible() {
       this.isVisible = !this.isVisible;
+    },
+  },
+  computed: {
+    firstThreeMovies() {
+      return this.$store.state.movies.slice(0, 3);
     },
   },
 };

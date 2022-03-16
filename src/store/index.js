@@ -34,6 +34,7 @@ export default new Vuex.Store({
     movie: (state) => (movieId) => {
       return state.movies.find(movie => movie.id === movieId)
     },
+
   },
 
 })
