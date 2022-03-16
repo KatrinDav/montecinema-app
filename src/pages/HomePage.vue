@@ -91,86 +91,84 @@ export default {
 </script>
 
 <style lang="scss">
-@media (min-width: 0px) {
-  .page-wrapper {
-    @include pageCenter();
-  }
-  .main-intro {
-    background-color: $cl-pink;
-    color: $cl-dark;
-    text-align: center;
-    padding-bottom: 40px;
-    width: 100%;
+.page-wrapper {
+  @include pageCenter();
+}
+.main-intro {
+  background-color: $cl-pink;
+  color: $cl-dark;
+  text-align: center;
+  padding-bottom: 40px;
+  width: 100%;
 
-    .title {
-      width: 75%;
-      margin: 0 auto;
-
-      h1 {
-        font-family: $ff-secondary;
-        font-size: $fs-large-alt;
-        line-height: 49px;
-        padding-top: 50px;
-        padding-bottom: 35px;
-      }
-
-      p {
-        font-family: $ff-primary-alt;
-        font-size: $fs-medium;
-        line-height: 37px;
-        letter-spacing: 1.5;
-        padding-bottom: 35px;
-      }
-    }
-  }
-
-  .more-info {
-    width: 92%;
+  .title {
+    width: 75%;
     margin: 0 auto;
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
+
+    h1 {
+      font-family: $ff-secondary;
+      font-size: $fs-large-alt;
+      line-height: 49px;
+      padding-top: 50px;
+      padding-bottom: 35px;
+    }
 
     p {
       font-family: $ff-primary-alt;
       font-size: $fs-medium;
-      font-weight: 700;
-      color: $cl-dark;
-      text-transform: uppercase;
-
-      &:nth-child(2) {
-        color: $cl-cherry-red;
-      }
-
-      span {
-        display: none;
-      }
+      line-height: 37px;
+      letter-spacing: 1.5;
+      padding-bottom: 35px;
     }
   }
-  .showItems {
-    cursor: pointer;
-  }
+}
 
-  .movies {
-    @include flexCenter();
-    flex-direction: column;
-    margin-top: 50px;
+.more-info {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
 
-    a {
-      text-decoration: none;
+  p {
+    font-family: $ff-primary-alt;
+    font-size: $fs-medium;
+    font-weight: 700;
+    color: $cl-dark;
+    text-transform: uppercase;
+
+    &:nth-child(2) {
+      color: $cl-cherry-red;
+    }
+
+    span {
+      display: none;
     }
   }
+}
+.showItems {
+  cursor: pointer;
+}
 
-  .contact {
-    width: 100%;
-    @include flexCenter();
-    flex-direction: column;
+.movies {
+  @include flexCenter();
+  flex-direction: column;
+  margin-top: 50px;
+
+  a {
+    text-decoration: none;
   }
-  .contact-details {
-    width: 400px;
-    height: 350px;
-    background-color: $cl-athens-grey;
-  }
+}
+
+.contact {
+  width: 100%;
+  @include flexCenter();
+  flex-direction: column;
+}
+.contact-details {
+  width: 400px;
+  height: 350px;
+  background-color: $cl-athens-grey;
 }
 
 @media (min-width: 902px) {

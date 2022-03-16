@@ -62,59 +62,57 @@ export default {
 </script>
 
 <style lang="scss">
-@media (min-width: 0px) {
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @include pageCenter();
-    height: 73px;
-    margin-top: 37px;
-    position: relative;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @include pageCenter();
+  height: 73px;
+  margin-top: 37px;
+  position: relative;
+}
 
-  .nav-menu {
+.nav-menu {
+  display: none;
+
+  &__action {
     display: none;
-
-    &__action {
-      display: none;
-    }
   }
+}
 
-  .mobile-nav {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    height: 18px;
-    width: 24px;
-    cursor: pointer;
-    z-index: 100;
-  }
+.mobile-nav {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  height: 18px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
 
-  .mobile-nav span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    background-color: $cl-mid-grey;
-  }
+.mobile-nav span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: $cl-mid-grey;
+}
 
-  .mobile-nav span:nth-child(1) {
-    top: 0;
-  }
+.mobile-nav span:nth-child(1) {
+  top: 0;
+}
 
-  .mobile-nav span:nth-child(2) {
-    top: calc(50% - 1.5px);
-  }
+.mobile-nav span:nth-child(2) {
+  top: calc(50% - 1.5px);
+}
 
-  .mobile-nav span:nth-child(3) {
-    bottom: 0;
-  }
+.mobile-nav span:nth-child(3) {
+  bottom: 0;
+}
 
-  .main_intro {
-    display: flex;
-    width: 100%;
-  }
+.main_intro {
+  display: flex;
+  width: 100%;
 }
 
 @media (min-width: 932px) {
