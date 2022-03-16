@@ -1,28 +1,31 @@
 <template>
   <div class="page-wrapper">
     <section class="main-intro">
-      <div class="wrapper">
-        <div class="title">
-          <MainTitle text="Welcome to the best cinema in Monterail" />
-          <p>
-            Best movies, best experiences, best people. And all that doesn’t
-            exist. Yikes.
-          </p>
-        </div>
+
+      <div class="title">
+        <h1>
+          Welcome to the best cinema in Monterail
+        </h1>
+        <p>
+          Best movies, best experiences, best people. And all that doesn’t
+          exist. Yikes.
+        </p>
         <BaseButton
           buttonType="primary"
           caption="Book a ticket"
         />
-
       </div>
-      <div class="main_image"></div>
+
+      <div class="main-image">
+      </div>
+
     </section>
     <div class="more-info">
       <p>soon <span>in the cinema</span></p>
       <p
         class="showItems"
         @click="changeVisible"
-      >see all</p>
+      >{{isVisible ? 'hide all' : 'see all'}}</p>
     </div>
     <div class="movies">
       <MovieCard
@@ -45,7 +48,6 @@
       <div class="contact-details">
         <ContactInfo />
       </div>
-
     </section>
 
   </div>
@@ -99,19 +101,27 @@ export default {
     text-align: center;
     padding-bottom: 40px;
     width: 100%;
-  }
 
-  .main-intro .title {
-    width: 75%;
-    margin: 0 auto;
-  }
+    .title {
+      width: 75%;
+      margin: 0 auto;
 
-  .main-intro .title p {
-    font-family: $ff-primary-alt;
-    font-size: $fs-medium;
-    line-height: 37px;
-    letter-spacing: 1.5;
-    padding-bottom: 35px;
+      h1 {
+        font-family: $ff-secondary;
+        font-size: $fs-large-alt;
+        line-height: 49px;
+        padding-top: 50px;
+        padding-bottom: 35px;
+      }
+
+      p {
+        font-family: $ff-primary-alt;
+        font-size: $fs-medium;
+        line-height: 37px;
+        letter-spacing: 1.5;
+        padding-bottom: 35px;
+      }
+    }
   }
 
   .more-info {
@@ -163,30 +173,28 @@ export default {
   }
 }
 
-@media (min-width: 932px) {
-  .container {
-    max-width: 92%;
-    margin: 0 auto;
-  }
-  .main_intro {
+@media (min-width: 902px) {
+  .main-intro {
     padding-bottom: 65px;
-  }
+    text-align: left;
 
-  .main_intro .title {
-    width: 70%;
-    padding-top: 50px;
-    padding-bottom: 45px;
-  }
+    .title {
+      padding-bottom: 45px;
+      width: 60%;
+      margin-left: 80px;
 
-  .main_intro .title h1 {
-    font-size: $fs-super-large;
-    line-height: 102%;
-    letter-spacing: -0.01em;
-    padding: 40px 0;
-  }
-
-  .main_intro .title p {
-    padding-bottom: 10px;
+      h1 {
+        font-size: $fs-super-large;
+        font-family: $ff-secondary;
+        line-height: 102%;
+        letter-spacing: -0.01em;
+        padding: 50px 0;
+        padding-top: 50px;
+      }
+      p {
+        padding-bottom: 50px;
+      }
+    }
   }
 
   .more-info p span {
@@ -202,7 +210,7 @@ export default {
     flex-wrap: wrap;
   }
 
-  .movies > .movie-card:nth-child(3) {
+  .movies > a:nth-child(3) {
     display: none;
   }
   .contact-details {
@@ -212,36 +220,26 @@ export default {
   }
 }
 
-@media (min-width: 1280px) {
-  .main_intro {
+@media (min-width: 1200px) {
+  .main-intro {
     height: 95vh;
     max-height: 678px;
-    // max-width: 1344px;
     padding-bottom: 0;
     margin: 0 auto;
-  }
+    display: flex;
 
-  .main_intro .wrapper {
-    width: 55%;
-    padding-left: 80px;
-    text-align: left;
-  }
+    .title {
+      padding-top: 40px;
+      padding-right: 65px;
+    }
 
-  .main_intro .title {
-    width: 100%;
-    padding-top: 50px;
-  }
-
-  .main_intro .title p {
-    padding-right: 65px;
-  }
-
-  .main_intro .main_image {
-    width: 45%;
-    background-image: url("../assets/unsplash-AtPWnYNDJnM.jpg");
-    background-position: center;
-    background-size: cover;
-    background-origin: content-box;
+    .main-image {
+      width: 40%;
+      background-image: url("../assets/unsplash-AtPWnYNDJnM.jpg");
+      background-position: center;
+      background-size: cover;
+      background-origin: content-box;
+    }
   }
 
   @media (min-width: 1440px) {
