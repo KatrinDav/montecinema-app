@@ -2,7 +2,10 @@
   <header class="header">
     <div class="header_logo">
       <router-link :to="{ name: 'Home' }">
-        <img src="../assets/logo.svg" alt="logo" />
+        <img
+          src="../assets/logo.svg"
+          alt="logo"
+        />
       </router-link>
     </div>
     <nav class="nav-menu">
@@ -28,20 +31,35 @@
         Contact us
       </router-link>
 
-    
     </nav>
-    <div class="nav-menu__action">
-        <router-link
+    <div
+      class="nav-menu__action"
+      v-if="!isLoggedIn"
+    >
+      <router-link
         :to="{ name: 'Register' }"
         class="nav-menu__action register"
         exact-active-class="nav-menu__item--active"
       >
-         <BaseButton caption="Register" buttonType="secondary"/>
+        <BaseButton
+          caption="Register"
+          buttonType="secondary"
+        />
       </router-link>
-     
+
       <router-link :to="{ name: 'Login' }">
-         <BaseButton caption="Login" />
+        <BaseButton caption="Login" />
       </router-link>
+    </div>
+
+    <div
+      class="nav-menu__action"
+      v-if="isLoggedIn"
+    >
+      <BaseButton
+        caption="Logout"
+        @click="logout"
+      />
     </div>
 
     <div class="mobile-nav"><span></span> <span></span> <span></span></div>
@@ -49,10 +67,21 @@
 </template>
 
 <script>
-import BaseButton from '../components/BaseButton.vue';
+import BaseButton from "../components/BaseButton.vue";
 export default {
   name: "TopHeader",
-  components: {BaseButton}
+  components: { BaseButton },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters["isLoggedIn"];
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push({ name: "Login" });
+    },
+  },
 };
 </script>
 
@@ -146,7 +175,5 @@ export default {
     text-decoration: none;
     margin-right: 25px;
   }
-
-  
 }
 </style>
