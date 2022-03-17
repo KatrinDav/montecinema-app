@@ -1,86 +1,122 @@
 <template>
-<section>
-  <MainTitle text="All the Movies" />
-  <div class="searchBar">
-    <BaseInput  
-      type="text"
-      label="search"
-      placeholder="Search for..."
-      v-model="query"/>
-  </div>
-  <div class="movies-container">
- 
-     <MovieCard
-      v-for="movie in movies"
-      :key="movie.id"
-      :movie="movie"
+  <section class="page-wrapper">
+    <ActionBar name="Movies" />
+    <MainTitle
+      text="All the movies"
+      positionType="left"
     />
- 
-  </div>
+    <div class="search-bar">
+      <div class="search-bar__input">
+        <BaseInput
+          type="text"
+          label="search"
+          placeholder="What are you looking for?"
+          v-model="query"
+        />
+      </div>
+      <div class="search-bar__select">
+        <SelectInput v-model="selected" />
+      </div>
+    </div>
 
-  
-</section>
-  
+    <div class="movies-container">
+
+      <MovieCard
+        v-for="movie in filteredByGenre"
+        :key="movie.id"
+        :movie="movie"
+      />
+
+    </div>
+  </section>
+
 </template>
 
 <script>
 import MainTitle from "../components/MainTitle.vue";
-import MovieCard from '../components/MovieCard.vue';
-import BaseInput from '../components/BaseInput.vue';
-import axios from 'axios';
-import {BASE_URL} from '../helpers/index';
+import MovieCard from "../components/MovieCard.vue";
+import BaseInput from "../components/BaseInput.vue";
+import SelectInput from "../components/SelectInput.vue";
+import ActionBar from "../components/ActionBar.vue";
 
 export default {
-  components: { MainTitle, MovieCard, BaseInput },
+  components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 
-  data(){
-  return {
-    movies: [],
-    errorMsg: '',
-    query: '',
-  }
+  data() {
+    return {
+      query: "",
+      selected: "All",
+    };
   },
 
-  computed:{
-    filteredMovies(){
-    const foundMovies = this.movies.filter(movie => movie.title.toLowerCase()
-    .includes(this.query.toLowerCase()));
-     return foundMovies;
-    }
-  },
-
-  methods:{
-    async fetchData(){
-      try{
-         const response = await axios.get(`${BASE_URL}/movies`);
-         console.log(response.data)
-         this.movies = response.data;
-      } catch{
-          this.errorMsg = 'Something went wrong...'
-          console.log(this.errorMsg)
-      }
-     
+  computed: {
+    movies() {
+      return this.$store.state.movies;
     },
-  
-  },
-  mounted(){
-    this.fetchData()
-  },
-  
-};
+    filteredByQuery() {
+      return this.movies.filter((movie) =>
+        movie.title.toLowerCase().includes(this.query.toLowerCase())
+      );
+    },
 
+    filteredByGenre() {
+      const filteredGenre = this.filteredByQuery.filter(
+        (movie) => movie.genre.name === this.selected
+      );
+
+      return this.selected === "All" ? this.filteredByQuery : filteredGenre;
+    },
+  },
+
+  async mounted() {
+    this.$store.dispatch("fetchMovies");
+  },
+};
 </script>
 
 
 <style lang="scss">
-.movies-container{
+.page-wrapper {
+  @include pageCenter();
+}
+.movies-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 50px;
 
-  align-items: center;
-  width: 97%;
-  max-width: 1440px;
-  margin: 0 auto;
+  a {
+    text-decoration: none;
+  }
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__input {
+    width: 100%;
+  }
+
+  &__select {
+    width: 100%;
+  }
+}
+
+@media (min-width: 785px) {
+  .search-bar {
+    flex-direction: row;
+
+    &__input {
+      width: 66%;
+      margin-right: 30px;
+    }
+
+    &__select {
+      width: 33%;
+    }
+  }
 }
 </style>

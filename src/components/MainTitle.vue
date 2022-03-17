@@ -1,5 +1,8 @@
 <template>
-  <h1 class="header-section">
+  <h1
+    :class="titleClasses"
+    :positionType="positionType"
+  >
     {{ text }} <span>{{ subText }}</span>
   </h1>
 </template>
@@ -16,6 +19,17 @@ export default {
       type: String,
       required: false,
     },
+    positionType: {
+      type: String,
+    },
+  },
+  computed: {
+    titleClasses() {
+      return [
+        "header-section",
+        { "header-section--left": this.positionType === "left" },
+      ];
+    },
   },
 };
 </script>
@@ -26,6 +40,7 @@ export default {
     font-family: $ff-secondary;
     font-size: $fs-large-alt;
     line-height: 49px;
+    margin-top: 50px;
     padding: 35px 0;
     text-align: center;
 
@@ -33,22 +48,19 @@ export default {
       color: $cl-grey;
       display: block;
     }
+
+    &--left {
+      text-align: left;
+    }
   }
 }
 
-@media (min-width: 932px) {
+@media (min-width: 1015px) {
   .header-section {
     font-size: $fs-super-large;
     line-height: 100%;
     letter-spacing: -0.01em;
     padding: 40px 0;
-   
   }
-}
-@media (min-width: 1280px) {
-  .header-section{
-      text-align: left;
-  }
-   
 }
 </style>
