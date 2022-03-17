@@ -18,9 +18,9 @@
     />
     <div class="error-info">{{ passwordError }}</div>
     <div class="form-wrapper__hints">
-      <p :class="[{red: !passwordLength && isPasswordTouched}, {green: passwordLength}]">At least 8 characters</p>
-      <p :class="[{red: !passwordLetter && isPasswordTouched}, {green: passwordLetter}]">At least one letter</p>
-      <p :class="[{red: !passwordDigit && isPasswordTouched}, {green: passwordDigit}]">At least one digit</p>
+      <p :class="[{red: isRed(passwordLength)}, {green: passwordLength}]">At least 8 characters</p>
+      <p :class="[{red: isRed(passwordLetter)}, {green: passwordLetter}]">At least one letter</p>
+      <p :class="[{red: isRed(passwordDigit)}, {green: passwordDigit}]">At least one digit</p>
     </div>
     <div class="form-wrapper__action">
       <router-link :to="{ name: 'Login' }">
@@ -108,6 +108,9 @@ export default {
     },
   },
   methods: {
+    isRed(param) {
+      return !param && this.isPasswordTouched;
+    },
     onSubmit() {
       if (this.isFormValid) {
         console.log(this.email, this.password);
