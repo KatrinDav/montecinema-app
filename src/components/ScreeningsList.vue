@@ -33,7 +33,6 @@ export default {
 
   mounted() {
     this.$store.dispatch("fetchMovies");
-    // this.$store.dispatch('fetchScreenings')
   },
 };
 </script>
