@@ -36,7 +36,7 @@
       <router-link
         :to="{ name: 'Register' }"
         class="nav-menu__action register"
-        exact-active-class="nav-menu__item--active"
+        exact-active-class="nav-menu__item"
       >
         <BaseButton
           caption="Register"
