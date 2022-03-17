@@ -10,7 +10,10 @@
       v-model="firstName"
       @blur="isFirstNameTouched = true"
     />
-    <div class="error">{{ firstNameError }}</div>
+    <div
+      v-if="firstNameError"
+      class="error"
+    >{{ firstNameError }}</div>
 
     <BaseInput
       type="text"
@@ -19,7 +22,10 @@
       v-model="lastName"
       @blur="isLastNameTouched = true"
     />
-    <div class="error">{{ lastNameError }}</div>
+    <div
+      v-if="lastNameError"
+      class="error"
+    >{{ lastNameError }}</div>
 
     <BaseInput
       type="date"
@@ -28,7 +34,10 @@
       v-model="birthDate"
       @blur="isBirthDateTouched = true"
     />
-    <div class="error">{{ birthDateError }}</div>
+    <div
+      v-if="birthDateError"
+      class="error"
+    >{{ birthDateError }}</div>
     <p class="hint">You should be minimum 18 years old</p>
 
     <div class="checkbox">
@@ -102,11 +111,7 @@ export default {
       const today = new Date();
       const birthDate = new Date(this.birthDate);
       const age = today.getFullYear() - birthDate.getFullYear();
-      if (age >= 18) {
-        return true;
-      } else {
-        return false;
-      }
+      return age >= 18 ? true : false;
     },
 
     birthDateError() {
@@ -114,7 +119,7 @@ export default {
         return "";
       }
       if (!this.birthDate) {
-        return "Last name is required!";
+        return "Birth date is required!";
       }
       if (!this.calculateAge) {
         return "You are too young...";
