@@ -50,11 +50,6 @@ export default {
   cursor: pointer;
   transition: 0.3s;
 
-  // &:disabled {
-  //   background-color: #ccc;
-  //   cursor: not-allowed;
-  // }
-
   &--primary {
     background-color: $cl-cherry-red;
     color: $cl-white;

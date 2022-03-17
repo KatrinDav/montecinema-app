@@ -22,19 +22,17 @@ export default {
 </script>
 
 <style lang="scss">
-@media (min-width: 0px) {
-  .register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 60px;
-    overflow: hidden;
-  }
-  .register-container__title {
-    width: 605px;
-    text-align: center;
-  }
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+.register-container__title {
+  width: 605px;
+  text-align: center;
 }
 @media (min-width: 932px) {
   .register-container__title {
