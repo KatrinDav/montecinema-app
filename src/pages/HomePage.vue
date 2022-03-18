@@ -9,47 +9,58 @@
             exist. Yikes.
           </p>
         </div>
-        <BaseButton buttonType="primary" caption="Book a ticket"/>
-   
+        <BaseButton
+          buttonType="primary"
+          caption="Book a ticket"
+        />
+
       </div>
       <div class="main_image"></div>
     </section>
     <div class="more-info">
       <p>soon <span>in the cinema</span></p>
-      <p class="showItems" @click="changeVisible">see all</p>
+      <p
+        class="showItems"
+        @click="changeVisible"
+      >see all</p>
     </div>
     <div class="movies">
-      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"/>
+      <MovieCard
+        v-for="movie in movies"
+        :key="movie.id"
+        :movie="movie"
+      />
     </div>
-    <section class="screening" v-if="isVisible">
-      <ScreeningsHeader/>
-     
-      <ScreeningsList/>
+    <section
+      class="screening"
+      v-if="isVisible"
+    >
+      <ScreeningsHeader />
+
+      <ScreeningsList />
     </section>
 
     <section class="contact">
-      <MainTitle text="Contact us"/>
+      <MainTitle text="Contact us" />
       <div class="contact-details">
-      <ContactInfo/>
+        <ContactInfo />
       </div>
-    
+
     </section>
 
-    
   </div>
 </template>
 
 <script>
 import MainTitle from "../components/MainTitle.vue";
-import BaseButton from '../components/BaseButton.vue';
-import ScreeningsHeader from '../components/ScreeningsHeader.vue';
-import ScreeningsList from '../components/ScreeningsList.vue';
-import MovieCard from '../components/MovieCard.vue';
-import ContactInfo from '../components/ContactInfo.vue';
+import BaseButton from "../components/BaseButton.vue";
+import ScreeningsHeader from "../components/ScreeningsHeader.vue";
+import ScreeningsList from "../components/ScreeningsList.vue";
+import MovieCard from "../components/MovieCard.vue";
+import ContactInfo from "../components/ContactInfo.vue";
 import photo1 from "../assets/predator.png";
 import photo2 from "../assets/commando.png";
 import photo3 from "../assets/terminator.png";
-
 
 export default {
   name: "HomePage",
@@ -62,32 +73,46 @@ export default {
     ContactInfo,
   },
 
-  data(){
+  data() {
     return {
       movies: [
-        {id: '1a', title: 'Predator', length: 90, poster_url: photo1, genre: {id: 1, name: 'Action'}} ,
-        {id: '2b', title: 'Commando', length: 90, poster_url: photo2, genre: {id: 2, name: 'Action'}},
-        {id: '3c', title: 'Terminator 2', length: 90, poster_url: photo3, genre: {id: 3, name: 'Action'}},
+        {
+          id: "1a",
+          title: "Predator",
+          length: 90,
+          poster_url: photo1,
+          genre: { id: 1, name: "Action" },
+        },
+        {
+          id: "2b",
+          title: "Commando",
+          length: 90,
+          poster_url: photo2,
+          genre: { id: 2, name: "Action" },
+        },
+        {
+          id: "3c",
+          title: "Terminator 2",
+          length: 90,
+          poster_url: photo3,
+          genre: { id: 3, name: "Action" },
+        },
       ],
 
       isVisible: false,
-   }
+    };
   },
   methods: {
-    changeVisible(){
-      this.isVisible = !this.isVisible
-    }
-  }
- 
-
-
+    changeVisible() {
+      this.isVisible = !this.isVisible;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 @media (min-width: 0px) {
-
-  .page-wrapper{
+  .page-wrapper {
     @include pageCenter();
   }
   .main-intro {
@@ -125,35 +150,35 @@ export default {
       color: $cl-dark;
       text-transform: uppercase;
 
-      &:nth-child(2){
-         color: $cl-cherry-red;
+      &:nth-child(2) {
+        color: $cl-cherry-red;
       }
 
-      span{
-          display: none;
+      span {
+        display: none;
       }
     }
   }
-  .showItems{
+  .showItems {
     cursor: pointer;
   }
 
-  .movies{
+  .movies {
     @include flexCenter();
     flex-direction: column;
     margin-top: 50px;
 
-    a{
+    a {
       text-decoration: none;
     }
   }
 
-  .contact{
+  .contact {
     width: 100%;
     @include flexCenter();
     flex-direction: column;
   }
-  .contact-details{
+  .contact-details {
     width: 400px;
     height: 350px;
     background-color: $cl-athens-grey;
@@ -161,13 +186,12 @@ export default {
 }
 
 @media (min-width: 932px) {
-   .container{
-       max-width: 92%;
-       margin: 0 auto;
+  .container {
+    max-width: 92%;
+    margin: 0 auto;
   }
   .main_intro {
     padding-bottom: 65px;
-   
   }
 
   .main_intro .title {
@@ -191,29 +215,26 @@ export default {
     display: inline;
   }
 
-  .more-info{
+  .more-info {
     width: 100%;
   }
 
-  .movies{
+  .movies {
     flex-direction: row;
     flex-wrap: wrap;
-   
   }
-  
+
   .movies > .movie-card:nth-child(3) {
     display: none;
   }
- .contact-details{
+  .contact-details {
     width: 600px;
     height: 400px;
     padding: 30px;
- 
   }
 }
 
 @media (min-width: 1280px) {
-  
   .main_intro {
     height: 95vh;
     max-height: 678px;
@@ -231,7 +252,6 @@ export default {
   .main_intro .title {
     width: 100%;
     padding-top: 50px;
- 
   }
 
   .main_intro .title p {
@@ -246,12 +266,10 @@ export default {
     background-origin: content-box;
   }
 
- 
   @media (min-width: 1440px) {
-   .movies > .movie-card:nth-child(3) {
-    display: inline;
+    .movies > .movie-card:nth-child(3) {
+      display: inline;
+    }
   }
-}
-  
 }
 </style>
