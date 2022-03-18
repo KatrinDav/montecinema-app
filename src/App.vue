@@ -13,6 +13,10 @@ export default {
   components: {
     TopHeader,
   },
+
+  created() {
+    this.$store.dispatch("restoreAuthSession");
+  },
 };
 </script>
 
