@@ -165,7 +165,6 @@ export default {
     margin-right: 25px;
   }
 }
-
 @media (min-width: 1140px) {
   .nav-menu__item {
     margin: 0 35px;

@@ -25,7 +25,7 @@
       <p
         class="showItems"
         @click="changeVisible"
-      >{{isVisible ? 'hide all' : 'see all'}}</p>
+      >{{setVisibility}}</p>
     </div>
     <div class="movies">
       <MovieCard
@@ -85,6 +85,9 @@ export default {
   computed: {
     firstThreeMovies() {
       return this.$store.state.movies.slice(0, 3);
+    },
+    setVisibility() {
+      return this.isVisible ? "hide all" : "see all";
     },
   },
 };
