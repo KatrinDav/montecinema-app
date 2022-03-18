@@ -29,31 +29,15 @@ export default {
   data() {
     return {
       selected: "All",
-      moviesGenres: [],
     };
   },
   computed: {
     movies() {
       return this.$store.getters.movies;
     },
-  },
-  methods: {
-    getGenres() {
-      const genres = this.movies.map((movie) => {
-        return movie.genre;
-      });
-      return genres;
+    moviesGenres() {
+      return this.$store.getters.uniqeGenres;
     },
-    getUniqueGenres() {
-      const genres = this.getGenres();
-      let uniq = {};
-      return (this.moviesGenres = genres.filter(
-        (item) => !uniq[item.id] && (uniq[item.id] = true)
-      ));
-    },
-  },
-  created() {
-    this.getUniqueGenres();
   },
 };
 </script>
