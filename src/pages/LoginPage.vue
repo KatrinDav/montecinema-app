@@ -14,6 +14,9 @@ import FormLogin from "../components/FormLogin.vue";
 import MainTitle from "../components/MainTitle.vue";
 export default {
   name: "LoginPage",
+  metaInfo: {
+    title: "Login Page",
+  },
   components: { FormLogin, MainTitle },
 };
 </script>

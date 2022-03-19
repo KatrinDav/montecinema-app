@@ -40,6 +40,11 @@ import SelectInput from "../components/SelectInput.vue";
 import ActionBar from "../components/ActionBar.vue";
 
 export default {
+  name: "MoviesPage",
+  metaInfo: {
+    title: "Movies",
+    titleTemplate: "%s | Monte Cinema",
+  },
   components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 
   data() {

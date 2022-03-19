@@ -64,6 +64,9 @@ import photo3 from "../assets/terminator.png";
 
 export default {
   name: "HomePage",
+  metaInfo: {
+    title: "Home Page",
+  },
   components: {
     MainTitle,
     BaseButton,
