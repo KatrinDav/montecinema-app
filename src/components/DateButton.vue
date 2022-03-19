@@ -11,6 +11,10 @@ export default {
       type: String,
       required: true,
     },
+    valueDate: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
