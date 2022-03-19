@@ -31,7 +31,7 @@ const routes = [
     {
         path: '/movies/:movieId',
         name: 'Movie',
-        component: () => import('@/components/MovieDetails.vue'),
+        component: () => import('@/pages/MovieDetailsPage.vue'),
         props: true,
     },
     {
@@ -39,6 +39,12 @@ const routes = [
         name: 'Register',
         component: () => import('@/pages/RegisterPage.vue'),
     },
+     {
+        path: '/register_next_step',
+        name: 'Register-Next',
+        component: () => import('@/pages/RegisterPage2.vue'),
+    },
+
     {
         path: '*',
         redirect: '/'
