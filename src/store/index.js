@@ -69,6 +69,13 @@ export default new Vuex.Store({
       return state.movies.find(movie => movie.id === movieId)
     },
     isLoggedIn: (state) => !!state.authHeader,
+
+    titles: (state) => {
+      return state.movies.map((movie) => movie.title)
+    },
+    datesScreen: (state) => (id) =>{
+      return state.screenings.filter(item => item.movie === id)
+    }
   },
 
 })
