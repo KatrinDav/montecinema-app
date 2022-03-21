@@ -38,6 +38,7 @@
         v-for="movie in filteredByTitle"
         :key="movie.id"
         :movie="movie"
+        :today="screeningsDays[0].date"
       />
 
     </section>
@@ -106,7 +107,7 @@ export default {
 
   mounted() {
     this.$store.dispatch("fetchMovies");
-    // this.$store.dispatch("fetchScreenings");
+    this.$store.dispatch("fetchScreenings");
     this.setScreeningsDays();
   },
 };

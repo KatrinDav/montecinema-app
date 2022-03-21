@@ -1,5 +1,9 @@
 <template>
-  <button class="date-btn">
+  <button
+    class="date-btn"
+    valueDate
+    @click="showDate"
+  >
     {{caption}}
   </button>
 </template>
@@ -16,6 +20,16 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      dt: this.valueDate,
+    };
+  },
+  methods: {
+    showDate() {
+      this.$root.$emit("getDate", this.dt);
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -30,5 +44,6 @@ export default {
   font-size: $fs-normal;
   color: $cl-dark;
   background-color: $cl-white;
+  cursor: pointer;
 }
 </style>
