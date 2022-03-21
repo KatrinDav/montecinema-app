@@ -10,6 +10,10 @@ import TopHeader from "./components/TopHeader.vue";
 
 export default {
   name: "App",
+  metaInfo: {
+    title: "",
+    titleTemplate: "%s | Monte Cinema",
+  },
   components: {
     TopHeader,
   },

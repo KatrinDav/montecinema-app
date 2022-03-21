@@ -1,5 +1,5 @@
 <template>
-    <main class="register-container">
+  <main class="register-container">
     <MainTitle
       text="Ahoy yo!"
       subText="Care to register?"
@@ -10,14 +10,16 @@
 </template>
 
 <script>
-import MainTitle from '../components/MainTitle.vue';
-import FormRegister from '../components/FormRegister.vue';
-
+import MainTitle from "../components/MainTitle.vue";
+import FormRegister from "../components/FormRegister.vue";
 
 export default {
-    name: 'RegisterPage',
-    components: {MainTitle, FormRegister},
-}
+  name: "RegisterPage",
+  metaInfo: {
+    title: "Register Page Nr 1",
+  },
+  components: { MainTitle, FormRegister },
+};
 </script>
 
 <style lang="scss">
@@ -38,7 +40,6 @@ export default {
 @media (min-width: 932px) {
   .register-container__title {
     text-align: left;
-
   }
 }
 </style>

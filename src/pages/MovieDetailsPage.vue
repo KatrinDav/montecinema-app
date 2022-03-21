@@ -37,6 +37,11 @@ import DateButton from "../components/DateButton.vue";
 
 export default {
   name: "MovieDetailsPage",
+  metaInfo: {
+    title: () => {
+      return this.movie.title;
+    },
+  },
   components: { ActionBar, ScreeningsHeader, DateButton },
   props: {
     movieId: {

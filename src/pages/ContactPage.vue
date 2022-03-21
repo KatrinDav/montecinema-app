@@ -26,6 +26,10 @@ import MainTitle from "../components/MainTitle.vue";
 import ActionBar from "../components/ActionBar.vue";
 import ContactInfo from "../components/ContactInfo.vue";
 export default {
+  name: "ContactPage",
+  metaInfo: {
+    title: "Contact",
+  },
   components: { MainTitle, ActionBar, ContactInfo },
 };
 </script>
