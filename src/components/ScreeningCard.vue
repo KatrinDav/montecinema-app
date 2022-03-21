@@ -13,10 +13,11 @@
         <div class="screening-card__length">{{setLength(movie.length)}}</div>
       </div>
       <div class="screening-card__date">
-        <!-- <p
-          v-for="item in movieScreenings"
+        <p
+          v-for="item in movieScreeningsForDay"
           :key="item.id"
-        >{{item.datetime}}</p> -->
+          today
+        >{{item.datetime.slice(11,16)}}</p>
       </div>
     </div>
 
@@ -31,11 +32,25 @@ export default {
       type: Object,
       required: true,
     },
+    today: {
+      type: String,
+    },
+  },
+
+  data() {
+    return {
+      date: this.today,
+    };
   },
 
   computed: {
     movieScreenings() {
       return this.$store.getters.datesScreen(this.movie.id);
+    },
+    movieScreeningsForDay() {
+      return this.movieScreenings.filter((item) => {
+        return item.datetime.slice(0, 10) === this.date;
+      });
     },
   },
 
@@ -46,6 +61,12 @@ export default {
 
       return `${hours}h ${minutes} min`;
     },
+  },
+  mounted() {
+    this.$root.$on("getDate", (dt) => {
+      this.date = dt;
+      console.log(this.date);
+    });
   },
 };
 </script>
@@ -117,6 +138,21 @@ export default {
       align-items: center;
       justify-content: center;
       margin-left: 15px;
+    }
+
+    &__date {
+      display: flex;
+      margin-top: 15px;
+
+      p {
+        margin-right: 20px;
+        color: $cl-cherry-red;
+        font-family: $ff-primary-alt;
+        font-size: $fs-small;
+        border: 1px solid $cl-cherry-red;
+        padding: 8px 22px;
+        border-radius: 20px;
+      }
     }
   }
   @media (min-width: 690px) {
