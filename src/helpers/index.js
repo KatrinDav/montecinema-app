@@ -11,3 +11,8 @@ export const getScreenings = async () => {
   return await axios.get(`${BASE_URL}/seances`);
 };
 
+export const setLength = (inMinutes) => {
+      const hours = Math.floor(inMinutes/60);
+      const minutes = `${inMinutes%60}`;
+      return `${hours}h ${minutes} min`
+    }
