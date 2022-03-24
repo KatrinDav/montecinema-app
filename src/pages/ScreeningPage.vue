@@ -5,7 +5,7 @@
     <div class="screen-action">
       <div class="screen-action__days">
         <DateButton
-          v-for="item in screeningsDays"
+          v-for="item in setScreeningsDays"
           :caption="item.name"
           :valueDate="item.date"
           :key="item.name"
@@ -19,7 +19,6 @@
             name="movies"
             class="select"
             v-model="selected"
-            @change="$emit('input', $event.target.value)"
           >
             <option value="All">All movies</option>
             <option
@@ -62,7 +61,6 @@ export default {
   data() {
     return {
       selected: "All",
-      screeningsDays: [],
     };
   },
   computed: {
@@ -82,37 +80,34 @@ export default {
       );
       return this.selected === "All" ? this.movies : filteredTitle;
     },
-  },
 
-  methods: {
     setScreeningsDays() {
       const today = new Date();
-
-      this.screeningsDays.push({
+      const screeningsDays = [];
+      screeningsDays.push({
         date: today.toISOString().slice(0, 10),
         name: "Today",
       });
 
       for (let i = 1; i < 6; i++) {
         const date = new Date(today.setDate(today.getDate() + 1));
-        this.screeningsDays.push({
+        screeningsDays.push({
           date: date.toISOString().slice(0, 10),
           name: date.toDateString().slice(0, 3),
         });
       }
-      console.log(this.screeningsDays);
+      console.log(screeningsDays);
+      return screeningsDays;
     },
   },
 
   mounted() {
     this.$store.dispatch("fetchMovies");
-    // this.$store.dispatch("fetchScreenings");
-    this.setScreeningsDays();
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 .page-wrapper {
   width: 92%;
   max-width: 1440px;

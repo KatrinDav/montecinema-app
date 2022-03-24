@@ -13,10 +13,7 @@
         <div class="screening-card__length">{{setLength(movie.length)}}</div>
       </div>
       <div class="screening-card__date">
-        <!-- <p
-          v-for="item in movieScreenings"
-          :key="item.id"
-        >{{item.datetime}}</p> -->
+
       </div>
     </div>
 
