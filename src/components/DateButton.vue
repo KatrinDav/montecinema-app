@@ -22,12 +22,12 @@ export default {
   },
   data() {
     return {
-      dt: this.valueDate,
+      dateTime: this.valueDate,
     };
   },
   methods: {
     showDate() {
-      this.$root.$emit("getDate", this.dt);
+      this.$root.$emit("getDate", this.dateTime);
     },
   },
 };

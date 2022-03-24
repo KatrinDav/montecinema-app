@@ -63,8 +63,8 @@ export default {
     },
   },
   mounted() {
-    this.$root.$on("getDate", (dt) => {
-      this.date = dt;
+    this.$root.$on("getDate", (dateTime) => {
+      this.date = dateTime;
       console.log(this.date);
     });
   },
@@ -150,7 +150,7 @@ export default {
         font-family: $ff-primary-alt;
         font-size: $fs-small;
         border: 1px solid $cl-cherry-red;
-        padding: 8px 22px;
+        padding: 0.6em 1.3em;
         border-radius: 20px;
       }
     }
