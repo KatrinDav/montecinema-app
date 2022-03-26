@@ -33,7 +33,6 @@
 
     </nav>
 
-    <div class="nav-menu__action">
     <div
       class="nav-menu__action"
       v-if="!isLoggedIn"
@@ -86,7 +85,6 @@ export default {
       this.$router.push({ name: "Login" });
     },
   },
-
 };
 </script>
 
