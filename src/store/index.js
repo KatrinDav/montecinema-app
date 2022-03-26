@@ -83,15 +83,18 @@ export default new Vuex.Store({
     },
     datesScreen: (state) => (id) =>{
       return state.screenings.filter(item => item.movie === id)
-    }
-  },
- 
-    uniqeGenres: (state, getters) => {
+    },
+    
+     uniqeGenres: (state, getters) => {
       let uniq = {};
       return getters.genres.filter(
         (item) => !uniq[item.id] && (uniq[item.id] = true)
       );
     }
+
+  },
+ 
+   
 
   },
     

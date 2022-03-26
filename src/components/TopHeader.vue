@@ -32,14 +32,17 @@
       </router-link>
 
     </nav>
+
+    <div class="nav-menu__action">
     <div
       class="nav-menu__action"
       v-if="!isLoggedIn"
     >
+
       <router-link
         :to="{ name: 'Register' }"
         class="nav-menu__action register"
-        exact-active-class="nav-menu__item--active"
+        exact-active-class="nav-menu__item"
       >
         <BaseButton
           caption="Register"
@@ -71,6 +74,7 @@ import BaseButton from "../components/BaseButton.vue";
 export default {
   name: "TopHeader",
   components: { BaseButton },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters["isLoggedIn"];
@@ -82,59 +86,62 @@ export default {
       this.$router.push({ name: "Login" });
     },
   },
+
 };
 </script>
 
 <style lang="scss">
-@media (min-width: 0px) {
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @include pageCenter();
-    height: 73px;
-    margin-top: 37px;
-    position: relative;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @include pageCenter();
+  height: 73px;
+  margin-top: 37px;
+  position: relative;
+}
 
-  .desktop-nav {
+.nav-menu {
+  display: none;
+
+  &__action {
     display: none;
   }
+}
 
-  .mobile-nav {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    height: 18px;
-    width: 24px;
-    cursor: pointer;
-    z-index: 100;
-  }
+.mobile-nav {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  height: 18px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
 
-  .mobile-nav span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    background-color: $cl-mid-grey;
-  }
+.mobile-nav span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: $cl-mid-grey;
+}
 
-  .mobile-nav span:nth-child(1) {
-    top: 0;
-  }
+.mobile-nav span:nth-child(1) {
+  top: 0;
+}
 
-  .mobile-nav span:nth-child(2) {
-    top: calc(50% - 1.5px);
-  }
+.mobile-nav span:nth-child(2) {
+  top: calc(50% - 1.5px);
+}
 
-  .mobile-nav span:nth-child(3) {
-    bottom: 0;
-  }
+.mobile-nav span:nth-child(3) {
+  bottom: 0;
+}
 
-  .main_intro {
-    display: flex;
-    width: 100%;
-  }
+.main_intro {
+  display: flex;
+  width: 100%;
 }
 
 @media (min-width: 932px) {
@@ -154,15 +161,26 @@ export default {
 
   .nav-menu__item {
     text-decoration: none;
-    margin: 0 35px;
+    margin: 0 25px;
     padding-bottom: 10px;
     font-family: $ff-primary;
     color: $cl-grey;
-    // margin-top: -10px;
     font-size: $fs-normal;
+    position: relative;
 
     &--active {
       font-weight: bold;
+      color: $cl-dark-alt;
+
+      &::after {
+        content: "";
+        border-bottom: 3px solid $cl-cherry-red;
+        position: absolute;
+        width: 140%;
+        left: -20%;
+        bottom: 0;
+        margin-bottom: -30px;
+      }
     }
   }
 
@@ -174,6 +192,11 @@ export default {
   .nav-menu__action .register {
     text-decoration: none;
     margin-right: 25px;
+  }
+}
+@media (min-width: 1140px) {
+  .nav-menu__item {
+    margin: 0 35px;
   }
 }
 </style>
