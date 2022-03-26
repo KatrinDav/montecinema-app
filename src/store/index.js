@@ -76,8 +76,16 @@ export default new Vuex.Store({
     },
 
     isLoggedIn: (state) => !!state.authHeader,
- 
 
+
+    titles: (state) => {
+      return state.movies.map((movie) => movie.title)
+    },
+    datesScreen: (state) => (id) =>{
+      return state.screenings.filter(item => item.movie === id)
+    }
+  },
+ 
     uniqeGenres: (state, getters) => {
       let uniq = {};
       return getters.genres.filter(
