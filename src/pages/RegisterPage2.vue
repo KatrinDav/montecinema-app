@@ -18,7 +18,7 @@ import FormName from "../components/FormName.vue";
 export default {
   name: "RegisterPage2",
   metaInfo: {
-    title: "Register Page Nr 2",
+    title: "Register",
   },
   components: { MainTitle, FormName },
 };

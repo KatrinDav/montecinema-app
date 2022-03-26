@@ -43,7 +43,6 @@ export default {
   name: "MoviesPage",
   metaInfo: {
     title: "Movies",
-    titleTemplate: "%s | Monte Cinema",
   },
   components: { MainTitle, MovieCard, BaseInput, ActionBar, SelectInput },
 

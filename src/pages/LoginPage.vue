@@ -15,7 +15,7 @@ import MainTitle from "../components/MainTitle.vue";
 export default {
   name: "LoginPage",
   metaInfo: {
-    title: "Login Page",
+    title: "Login",
   },
   components: { FormLogin, MainTitle },
 };

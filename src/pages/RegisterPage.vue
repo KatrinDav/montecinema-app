@@ -16,7 +16,7 @@ import FormRegister from "../components/FormRegister.vue";
 export default {
   name: "RegisterPage",
   metaInfo: {
-    title: "Register Page Nr 1",
+    title: "Register",
   },
   components: { MainTitle, FormRegister },
 };
