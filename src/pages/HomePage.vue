@@ -23,7 +23,7 @@
     <div class="more-info">
       <p>soon <span>in the cinema</span></p>
       <p
-        class="showItems"
+        class="show-items"
         @click="changeVisible"
       >{{setVisibility}}</p>
     </div>

@@ -1,5 +1,8 @@
 <template>
-  <form class="form-wrapper" @submit.prevent="onSubmit">
+  <form
+    class="form-wrapper"
+    @submit.prevent="onSubmit"
+  >
     <BaseInput
       type="email"
       label="email"
@@ -14,7 +17,11 @@
       @blur="isPasswordTouched = true"
     />
     <div>{{ passwordError }}</div>
-    <button type="submit" class="form-wrapper__button" :disabled="!isFormValid">
+    <button
+      type="submit"
+      class="form-wrapper__button"
+      :disabled="!isFormValid"
+    >
       Log in
     </button>
   </form>
@@ -66,13 +73,19 @@ export default {
     },
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (this.isFormValid) {
         console.log(this.email, this.password);
+        this.$store.dispatch("login", {
+          email: this.email,
+          password: this.password,
+        });
         this.password = "";
         this.email = "";
         this.isPasswordTouched = false;
         this.isEmailTouched = false;
+
+        this.$router.push({ name: "Home" });
       }
     },
   },

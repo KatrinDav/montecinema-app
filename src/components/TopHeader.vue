@@ -32,7 +32,13 @@
       </router-link>
 
     </nav>
+
     <div class="nav-menu__action">
+    <div
+      class="nav-menu__action"
+      v-if="!isLoggedIn"
+    >
+
       <router-link
         :to="{ name: 'Register' }"
         class="nav-menu__action register"
@@ -49,6 +55,16 @@
       </router-link>
     </div>
 
+    <div
+      class="nav-menu__action"
+      v-if="isLoggedIn"
+    >
+      <BaseButton
+        caption="Logout"
+        @click="logout"
+      />
+    </div>
+
     <div class="mobile-nav"><span></span> <span></span> <span></span></div>
   </header>
 </template>
@@ -58,6 +74,19 @@ import BaseButton from "../components/BaseButton.vue";
 export default {
   name: "TopHeader",
   components: { BaseButton },
+
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters["isLoggedIn"];
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push({ name: "Login" });
+    },
+  },
+
 };
 </script>
 
