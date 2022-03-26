@@ -68,7 +68,15 @@ export default new Vuex.Store({
     movie: (state) => (movieId) => {
       return state.movies.find(movie => movie.id === movieId)
     },
+
+    movies: (state) => state.movies,
+
+    genres: (state) => {
+      return state.movies.map((movie) => movie.genre)
+    },
+
     isLoggedIn: (state) => !!state.authHeader,
+
 
     titles: (state) => {
       return state.movies.map((movie) => movie.title)
@@ -77,5 +85,14 @@ export default new Vuex.Store({
       return state.screenings.filter(item => item.movie === id)
     }
   },
+ 
+    uniqeGenres: (state, getters) => {
+      let uniq = {};
+      return getters.genres.filter(
+        (item) => !uniq[item.id] && (uniq[item.id] = true)
+      );
+    }
 
+  },
+    
 })
