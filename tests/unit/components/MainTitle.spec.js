@@ -9,8 +9,9 @@ describe("MainTitle.vue", () => {
                 subText: "Something went wrong..."
             }
         });
-        expect(wrapper.props().text).toContain("Hello World!")
-        expect(wrapper.props().subText).toContain("Something went wrong...")
+
+      expect(wrapper.find("h1").text()).toMatch("Hello World!")
+      expect(wrapper.find("h1 span").text()).toMatch("Something went wrong...")
 
     })
 })

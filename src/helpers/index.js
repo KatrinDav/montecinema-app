@@ -14,5 +14,5 @@ export const getScreenings = async () => {
 export const setLength = (inMinutes) => {
       const hours = Math.floor(inMinutes/60);
       const minutes = `${inMinutes%60}`;
-      return `${hours}h ${minutes} min`
+      return `${hours}h ${minutes}min`
     }

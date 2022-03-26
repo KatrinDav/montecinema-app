@@ -4,6 +4,7 @@ import BaseButton from '@/components/BaseButton.vue'
 
 const createComponent = () => shallowMount(HomePage);
 const findDescription = (wrapper) => wrapper.find(".title p");
+const findComponent = (wrapper) => wrapper.find(BaseButton)
 
 describe('HomePage.vue', () => {
   it('shows description', () => {
@@ -12,7 +13,7 @@ describe('HomePage.vue', () => {
   });
   it('renders a BaseButton component', () => {
     const wrapper = createComponent();
-    expect(wrapper.findComponent(BaseButton).exists()).toBe(true)
+    expect(findComponent(wrapper).exists()).toBe(true)
   })
   
 })
